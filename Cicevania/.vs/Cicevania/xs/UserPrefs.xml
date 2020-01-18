@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{E94CBE82-CB03-19B0-70D0-3B13EF517FB9}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameAssets/Scripts/MovingPlatform.cs">
+    <Files>
+      <File FileName="Assets/GameAssets/Scripts/CharacterCanvasController.cs" Line="11" Column="33" />
+      <File FileName="Assets/GameAssets/Scripts/Health.cs" Line="45" Column="1" />
+      <File FileName="Assets/GameAssets/Scripts/PlayerController.cs" Line="55" Column="6" />
+      <File FileName="Assets/GameAssets/Scripts/Coin.cs" Line="31" Column="1" />
+      <File FileName="Assets/GameAssets/Scripts/Spikes.cs" Line="13" Column="10" />
+      <File FileName="Assets/GameAssets/Scripts/Enemy.cs" Line="32" Column="16" />
+      <File FileName="Assets/GameAssets/Scripts/Jumper.cs" Line="26" Column="54" />
+      <File FileName="Assets/GameAssets/Scripts/Lever.cs" Line="14" Column="24" />
+      <File FileName="Assets/GameAssets/Scripts/MovingPlatform.cs" Line="59" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Cicevania" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="GameAssets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="MovingPlatform.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f9d4ea30-e295-4711-a85b-3ddb6cf985a9" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
