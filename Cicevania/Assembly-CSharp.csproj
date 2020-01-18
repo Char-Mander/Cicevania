@@ -88,6 +88,9 @@
     <Compile Include="Assets\GameAssets\Scripts\SceneController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ScrollParallax.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Spikes.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Star.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Teleport.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\Tube.cs" />
     <None Include="Assets\2d-extras-2018.2\Assets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

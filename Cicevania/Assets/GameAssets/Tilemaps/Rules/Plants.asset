@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5751a2c961df945a34295ccf5e576d, type: 3}
   m_Name: Plants
   m_EditorClassIdentifier: 
-  m_Prefabs: []
+  m_Prefabs:
+  - {fileID: 752249775701497052, guid: 1f08a4ec9073f43d7bf8e84de5c59651, type: 3}
   m_PerlinScale: 0.5
   m_Z: 0
