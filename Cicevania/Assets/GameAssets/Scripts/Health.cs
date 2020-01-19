@@ -27,15 +27,14 @@ public class Health : MonoBehaviour
         currentHealth -= ammount;
         if (currentHealth <= 0)
         {
-            print(this.gameObject.name + " has died");
             this.gameObject.GetComponent<Animator>().SetTrigger("Die");
-            if (this.gameObject.CompareTag("Enemy")){
+            if (this.CompareTag("Enemy")){
                 GetComponent<SpriteRenderer>().flipY = true;
-                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
                 GetComponent<Collider2D>().enabled = false;
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
                 Destroy(this.gameObject, 3);
             }
-            Destroy(this.gameObject, 3);
+            Destroy(this.gameObject, 2);
         }
         canvas.UpdateHealthBar(currentHealth, maxHealth);
     }

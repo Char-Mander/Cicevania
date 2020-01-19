@@ -11,14 +11,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int jumpDamage;
     [SerializeField]
+    private int superAttackDamage;
+    [SerializeField]
     private float hitGodModeDuration;
+    [SerializeField]
+    GameObject areaSuperAttack;
 
     Character2DController cController;
     Animator anim;
     Rigidbody2D rb;
     float horizontal;
     bool isJumping;
-    bool canHit = true;
+    bool canDoSuperAttack = true;
     bool isCrouching = false;
     bool canJumpOrHit = true;
     bool godMode;
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
         cController = GetComponent<Character2DController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        areaSuperAttack.SetActive(false);
     }
 
     // Update is called once per frame
@@ -43,19 +48,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //TODO Ataque
-        /*if(Input.GetKey(KeyCode.R) && canJumpOrHit)
+        if(Input.GetKey(KeyCode.R) && canJumpOrHit && canDoSuperAttack)
         {
-            if (canJumpOrHit)
-            {
-                canHit = false;
-                Hit();
-            }
-            anim.SetLayerWeight(1, 1);
+                canDoSuperAttack = false;
+                SuperAttack();
         }
-        else
-        {
-            anim.SetLayerWeight(1, 0);
-        }*/
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -103,10 +100,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //TODO Función en la que ataca con el paraguas
-    private void Hit()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Enemy") && !canDoSuperAttack)
+        {
+            print("Ha entrado y ha detectado al enemigo");
+            collision.GetComponent<Health>().LoseHealth(superAttackDamage);
+        }
         
+    }
+
+    //TODO Función en la que ataca con el paraguas
+    private void SuperAttack()
+    {
+        StartCoroutine(ActiveAreaSuperAttack());
+        anim.SetTrigger("SuperAttack");
+        StartCoroutine(WaitForDoSuperAttackAgain());
     }
 
     private bool JumpAttack(Vector2 posEnemy)
@@ -137,6 +146,19 @@ public class PlayerController : MonoBehaviour
         Color auxColor = sr.color;
         auxColor.a = value;
         sr.color = auxColor;
+    }
+
+    IEnumerator ActiveAreaSuperAttack()
+    {
+        yield return new WaitForSeconds(0.1f);
+        areaSuperAttack.SetActive(true);
+    }
+
+    IEnumerator WaitForDoSuperAttackAgain()
+    {
+        yield return new WaitForSeconds(0.65f);
+        canDoSuperAttack = true;
+        areaSuperAttack.SetActive(false);
     }
 
     public void GetDamage(int damage)
