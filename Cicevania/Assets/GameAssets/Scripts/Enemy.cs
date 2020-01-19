@@ -6,27 +6,42 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     private int damage;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float moveSpeed;
+    
+    float horizontal = -1;
+    bool noCollision = true;
+    
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EnemyMovement();
     }
 
     void EnemyMovement()
     {
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime * horizontal;
+        // Llamar en el fixedupdate
+        //rb.AddForce(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
+        //print(rb.velocity.x);
+    }
+    
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground") && noCollision)
+        {
+            print("Horizontal: " + horizontal);
+            print("sin colisión: " + noCollision);
+            noCollision = false;
+            horizontal = -horizontal;
+            StartCoroutine(WaitForNextCollision());
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator WaitForNextCollision()
     {
-        
+        yield return new WaitForSeconds(0.5f);
+        noCollision = true;
     }
 
     public int GetDamage() { return damage; }

@@ -29,11 +29,12 @@ public class Health : MonoBehaviour
         {
             print(this.gameObject.name + " has died");
             this.gameObject.GetComponent<Animator>().SetTrigger("Die");
-            /*if (!this.gameObject.CompareTag("Player")){
+            if (this.gameObject.CompareTag("Enemy")){
                 GetComponent<SpriteRenderer>().flipY = true;
-                this.gameObject.GetComponent<CircleCollider2D>.enabled = false;
-                this.gameObject.GetComponent<RigidBody2D>.addForce(Vector2.up, 150);
-            }*/
+                GetComponent<Rigidbody2D>().AddForce(Vector2.up * 300);
+                GetComponent<Collider2D>().enabled = false;
+                Destroy(this.gameObject, 3);
+            }
             Destroy(this.gameObject, 3);
         }
         canvas.UpdateHealthBar(currentHealth, maxHealth);

@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
     [SerializeField]
+    private float crouchMoveSpeed;
+    [SerializeField]
     private int jumpDamage;
     [SerializeField]
     private float hitGodModeDuration;
@@ -16,6 +18,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     float horizontal;
     bool isJumping;
+    bool canHit = true;
+    bool isCrouching = false;
+    bool canJumpOrHit = true;
     bool godMode;
     // Start is called before the first frame update
     void Start()
@@ -32,9 +37,33 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(horizontal));
         anim.SetFloat("VelY", rb.velocity.y);
         anim.SetBool("IsGrounded", cController.GetIsGrounded());
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && canJumpOrHit)
         {
             isJumping = true;
+        }
+
+        //TODO Ataque
+        /*if(Input.GetKey(KeyCode.R) && canJumpOrHit)
+        {
+            if (canJumpOrHit)
+            {
+                canHit = false;
+                Hit();
+            }
+            anim.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            anim.SetLayerWeight(1, 0);
+        }*/
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            isCrouching = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            isCrouching = false;
         }
 
         if (godMode) Blink();
@@ -43,7 +72,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        cController.Move(horizontal * Time.deltaTime * moveSpeed, false, isJumping);
+        float speed = isCrouching ? crouchMoveSpeed : moveSpeed;
+        cController.Move(horizontal * Time.deltaTime * speed, isCrouching, isJumping);
     }
 
     public void OnGround()
@@ -51,11 +81,17 @@ public class PlayerController : MonoBehaviour
         isJumping = false;
     }
 
+    public void OnCrouch(bool value)
+    {
+        anim.SetBool("Crouch", value);
+        canJumpOrHit = !value;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Enemy"))
         {
-            if (JumpAttack(collision.transform.position))
+            if (JumpAttack(collision.transform.position) || isCrouching)
             {
                 cController.Jump();
                 collision.gameObject.GetComponent<Health>().LoseHealth(jumpDamage);
@@ -65,6 +101,12 @@ public class PlayerController : MonoBehaviour
                 GetDamage(collision.collider.GetComponent<Enemy>().GetDamage());
             }
         }
+    }
+
+    //TODO Función en la que ataca con el paraguas
+    private void Hit()
+    {
+        
     }
 
     private bool JumpAttack(Vector2 posEnemy)

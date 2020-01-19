@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3047161893858308897}
   - component: {fileID: 3047161893858308896}
   - component: {fileID: 3047161893858308900}
-  - component: {fileID: 3047161893858309083}
   - component: {fileID: 3047161893858308903}
+  - component: {fileID: 4681897163961565247}
   - component: {fileID: 3047161893858308901}
   - component: {fileID: 3047161893858309082}
   - component: {fileID: 3047161893858309080}
@@ -128,22 +128,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &3047161893858309083
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3047161893858308899}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: afd968de845dd41b9b2111b5d51f2152, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.21125364, y: 1.211331}
-  serializedVersion: 2
-  m_Radius: 0.24538529
 --- !u!58 &3047161893858308903
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -157,9 +141,35 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.095293075, y: 0.1435323}
+  m_Offset: {x: -0.21250772, y: 0.3414967}
   serializedVersion: 2
-  m_Radius: 0.14706138
+  m_Radius: 0.3282807
+--- !u!61 &4681897163961565247
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3047161893858308899}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: afd968de845dd41b9b2111b5d51f2152, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.21752802, y: 0.9073577}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.12, y: 1.52}
+    newSize: {x: 0.28, y: 0.38}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6007394, y: 1.1410804}
+  m_EdgeRadius: 0
 --- !u!114 &3047161893858308901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +191,7 @@ MonoBehaviour:
     m_Bits: 256
   m_GroundCheck: {fileID: 3047161895066600466}
   m_CeilingCheck: {fileID: 3047161895631018734}
-  m_CrouchDisableCollider: {fileID: 3047161893858309083}
+  m_CrouchDisableCollider: {fileID: 0}
   k_GroundedRadius: 0.1
   k_CeilingRadius: 0.16
   OnLandEvent:
@@ -200,7 +210,18 @@ MonoBehaviour:
         m_CallState: 1
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3047161893858309082}
+        m_MethodName: OnCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &3047161893858309082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3047161895066600477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.109, y: 0, z: 0}
+  m_LocalPosition: {x: -0.21, y: 0.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3047161893858308902}
