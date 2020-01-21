@@ -36,7 +36,7 @@ public class Health : MonoBehaviour
             }
             Destroy(this.gameObject, 2);
         }
-        canvas.UpdateHealthBar(currentHealth, maxHealth);
+        if(canvas != null) canvas.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public int GetMaxHealth() { return maxHealth; }

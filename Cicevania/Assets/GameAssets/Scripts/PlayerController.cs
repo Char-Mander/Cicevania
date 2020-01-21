@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(horizontal));
         anim.SetFloat("VelY", rb.velocity.y);
         anim.SetBool("IsGrounded", cController.GetIsGrounded());
-        print("Crouching: " + isCrouching);
         if (Input.GetKeyDown(KeyCode.UpArrow) && canJumpOrHit)
         {
             if (!isJumping)
@@ -51,6 +50,7 @@ public class PlayerController : MonoBehaviour
             else if (!isDoubleJumping)
             {
                 isDoubleJumping = true;
+                cController.Jump();
             }
         }
 
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         float speed = isCrouching ? crouchMoveSpeed : moveSpeed;
-        cController.Move(horizontal * Time.deltaTime * speed, isCrouching, isJumping, isDoubleJumping);
+        cController.Move(horizontal * Time.deltaTime * speed, isCrouching, isJumping);
     }
 
     public void OnGround()

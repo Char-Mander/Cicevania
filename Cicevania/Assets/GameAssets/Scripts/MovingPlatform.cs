@@ -9,11 +9,13 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     Stack<Transform> returnPath = new Stack<Transform>();
     [SerializeField]
-    private GameObject platform;
-    [SerializeField]
     private float moveSpeed;
     [SerializeField]
     float waitTime;
+    [SerializeField]
+    PhysicsMaterial2D antibug;
+    [SerializeField]
+    PhysicsMaterial2D onPlatform;
 
     Transform currentWP;
     private bool canMove = true;
@@ -36,10 +38,10 @@ public class MovingPlatform : MonoBehaviour
 
     void MovePlatform()
     {
-        Vector2 dir = (currentWP.position - platform.transform.position).normalized;
-        Vector2 nextPos = (Vector2)platform.transform.position + dir * moveSpeed * Time.deltaTime;
-        platform.GetComponent<Rigidbody2D>().MovePosition(nextPos);
-        if (Vector3.Distance(platform.transform.position, currentWP.transform.position) < 0.1f)
+        Vector2 dir = (currentWP.position - this.transform.position).normalized;
+        Vector2 nextPos = (Vector2)this.transform.position + dir * moveSpeed * Time.deltaTime;
+        this.GetComponent<Rigidbody2D>().MovePosition(nextPos);
+        if (Vector3.Distance(this.transform.position, currentWP.transform.position) < 0.1f)
         {
             canMove = false;
             StartCoroutine(WaitOnStop());
@@ -70,6 +72,23 @@ public class MovingPlatform : MonoBehaviour
                 wpIndex = 1;
                 currentWP = wayPoints[wpIndex];
             }
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.collider.tag == "Player")
+        {
+            col.collider.sharedMaterial = onPlatform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.collider.tag == "Player")
+        {
+            col.collider.sharedMaterial = antibug;
         }
     }
 }

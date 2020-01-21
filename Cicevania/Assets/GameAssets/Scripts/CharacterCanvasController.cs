@@ -17,6 +17,6 @@ public class CharacterCanvasController : MonoBehaviour
 
     public void UpdateCoinAmmount(int ammount)
     {
-        txtCoinAmmount.text = ammount.ToString();
+        if(txtCoinAmmount != null)txtCoinAmmount.text = ammount.ToString();
     }
 }

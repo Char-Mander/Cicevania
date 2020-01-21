@@ -29,7 +29,6 @@ public class Character2DController : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
-    private bool hasDoubleJump = false;
 
 	private void Awake()
 	{
@@ -62,7 +61,7 @@ public class Character2DController : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump, bool doubleJump)
+	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -73,7 +72,7 @@ public class Character2DController : MonoBehaviour
 				crouch = true;
 			}
 		}
-
+        print("Grounded: " + m_Grounded);
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
@@ -129,14 +128,8 @@ public class Character2DController : MonoBehaviour
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-            hasDoubleJump = false;
             Jump();	
 		}
-        else if(!m_Grounded && doubleJump && !hasDoubleJump)
-        {
-            hasDoubleJump = true;
-            Jump();
-        }
 	}
 
     public void Jump()

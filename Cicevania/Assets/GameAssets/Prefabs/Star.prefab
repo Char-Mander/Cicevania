@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb99dad40a175848a3baa5d97f1ce42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godModeTime: 5
+  godModeTime: 10
   colors:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.972549, g: 0, b: 0, a: 1}

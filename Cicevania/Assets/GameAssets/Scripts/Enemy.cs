@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public float detectDist;
     public LayerMask lm;
+    [HideInInspector]
+    public Vector2 vecToTarget;
 
     [SerializeField]
     private int damage;
@@ -32,8 +34,8 @@ public class Enemy : MonoBehaviour
 
     public virtual void Update()
     {
-        Movement(0);
         DetectTarget(target);
+        Movement(0);
     }
 
     public virtual void Movement(float height)
@@ -51,15 +53,24 @@ public class Enemy : MonoBehaviour
 
     public virtual void DetectTarget(Transform target)
     {
-        if(Vector2.Distance(this.transform.position, target.position) <= detectDist)
+        /* if(Vector2.Distance(this.transform.position, target.position) <= detectDist)
+         {
+             Vector2 dirToTarget = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
+             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dirToTarget, detectDist, lm);
+             Debug.DrawLine(transform.position, hit.point, Color.green);
+             if (hit.collider.CompareTag("Player"))
+             {
+                 //Debug.DrawLine(transform.position, hit.point, Color.red);
+                 Attack();
+             }
+         }*/
+        vecToTarget = target.position - transform.position;
+        if (vecToTarget.magnitude < detectDist)
         {
-            Vector2 dirToTarget = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dirToTarget, detectDist, lm);
-            Debug.DrawLine(transform.position, hit.point, Color.green);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
             if (hit.collider.CompareTag("Player"))
             {
-                Debug.DrawLine(transform.position, hit.point, Color.red);
-                print("Detected");
+                Attack();
             }
         }
     }
@@ -87,9 +98,10 @@ public class Enemy : MonoBehaviour
 
     public int GetDamage() { return damage; }
 
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(this.transform.position, detectDist);
-    }
+    }*/
 }
