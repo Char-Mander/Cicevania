@@ -8,6 +8,8 @@ public class CharacterCanvasController : MonoBehaviour
     [SerializeField]
     private Image imgHealthBar;
     [SerializeField]
+    private Text txtLifesAmmount;
+    [SerializeField]
     private Text txtCoinAmmount;
 
     public void UpdateHealthBar(int current, int max)
@@ -15,8 +17,14 @@ public class CharacterCanvasController : MonoBehaviour
         imgHealthBar.fillAmount = (float)current / (float)max;
 	}
 
+    public void UpdateLifesAmmount(int ammount)
+    {
+        if (txtLifesAmmount != null) txtLifesAmmount.text = "x " + ammount.ToString();
+    }
+
     public void UpdateCoinAmmount(int ammount)
     {
-        if(txtCoinAmmount != null)txtCoinAmmount.text = ammount.ToString();
+        if(txtCoinAmmount != null)txtCoinAmmount.text = "x "+ ammount.ToString();
     }
+
 }

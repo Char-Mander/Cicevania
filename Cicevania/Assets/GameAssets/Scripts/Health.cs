@@ -34,9 +34,25 @@ public class Health : MonoBehaviour
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
                 Destroy(this.gameObject, 3);
             }
+            else if (this.CompareTag("Player"))
+            {
+                if (GameManager._instance.GetCurrentLifes() > 1)
+                {
+                    GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
+                    FindObjectOfType<CharacterCanvasController>().UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
+                    GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
+                }
+                else
+                {
+                    GameManager._instance.sceneC.LoadGameOver();
+                    //Resetear en GameOver los valores
+                }
+                    
+
+            }
             Destroy(this.gameObject, 2);
         }
-        if(canvas != null) canvas.UpdateHealthBar(currentHealth, maxHealth);
+        if(canvas!=null)canvas.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public int GetMaxHealth() { return maxHealth; }

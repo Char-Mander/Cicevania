@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int maxLevels = 1;
     private int currentLvl = 1;
+    [SerializeField]
+    private int initLifes = 3;
+    private int currentLifes = 3;
     public int coinAmmount { get; set; }
 
     private void Awake()
@@ -32,12 +35,18 @@ public class GameManager : MonoBehaviour
         //References
         data = GetComponent<DataManager>();
         optionsC = GetComponentInChildren<OptionsController>();
-        //Quitar después
         //optionsC.gameObject.SetActive(false);
         sceneC = GetComponent<SceneController>();
         //Init
         data.LoadData();
 
+    }
+
+    public void ResetValues()
+    {
+        currentLvl = 1;
+        currentLifes = initLifes;
+        coinAmmount = 0;
     }
 
     public int GetMaxLevels(){ return maxLevels; }
@@ -47,5 +56,14 @@ public class GameManager : MonoBehaviour
     public void SetCurrentLvl(int lvl)
     {
         currentLvl = lvl;
+    }
+
+    public int GetInitLifes() { return initLifes; }
+
+    public int GetCurrentLifes() { return currentLifes; }
+
+    public void SetCurrentLifes(int currentLifes)
+    {
+        this.currentLifes = currentLifes;
     }
 }

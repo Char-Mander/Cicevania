@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class LvlButton : MonoBehaviour
 {
     //[SerializeField]
     private int lvl;
     [SerializeField]
-    private Text txtNumLvl;
+    private TextMeshProUGUI txtNumLvl;
     LvlButton btn;
 
     public void InitBtn(int numLvl, bool active)
