@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     float horizontal;
-    bool isJumping;
+    bool isJumping = false;
+    bool isDoubleJumping = false;
     bool canDoSuperAttack = true;
     bool isCrouching = false;
     bool canJumpOrHit = true;
@@ -42,9 +43,15 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", Mathf.Abs(horizontal));
         anim.SetFloat("VelY", rb.velocity.y);
         anim.SetBool("IsGrounded", cController.GetIsGrounded());
+        print("Crouching: " + isCrouching);
         if (Input.GetKeyDown(KeyCode.UpArrow) && canJumpOrHit)
         {
-            isJumping = true;
+            if (!isJumping)
+                isJumping = true;
+            else if (!isDoubleJumping)
+            {
+                isDoubleJumping = true;
+            }
         }
 
         //TODO Ataque
@@ -70,12 +77,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         float speed = isCrouching ? crouchMoveSpeed : moveSpeed;
-        cController.Move(horizontal * Time.deltaTime * speed, isCrouching, isJumping);
+        cController.Move(horizontal * Time.deltaTime * speed, isCrouching, isJumping, isDoubleJumping);
     }
 
     public void OnGround()
     {
         isJumping = false;
+        isDoubleJumping = false;
     }
 
     public void OnCrouch(bool value)
