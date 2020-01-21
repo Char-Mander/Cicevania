@@ -1,15 +1,17 @@
 ﻿<Properties StartupConfiguration="{E94CBE82-CB03-19B0-70D0-3B13EF517FB9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameAssets/Scripts/MovingPlatform.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameAssets/Scripts/CrazyFishEnemy.cs">
     <Files>
       <File FileName="Assets/GameAssets/Scripts/CharacterCanvasController.cs" Line="11" Column="33" />
-      <File FileName="Assets/GameAssets/Scripts/Health.cs" Line="45" Column="1" />
-      <File FileName="Assets/GameAssets/Scripts/PlayerController.cs" Line="55" Column="6" />
-      <File FileName="Assets/GameAssets/Scripts/Coin.cs" Line="31" Column="1" />
-      <File FileName="Assets/GameAssets/Scripts/Spikes.cs" Line="13" Column="10" />
-      <File FileName="Assets/GameAssets/Scripts/Enemy.cs" Line="32" Column="16" />
-      <File FileName="Assets/GameAssets/Scripts/Jumper.cs" Line="26" Column="54" />
+      <File FileName="Assets/GameAssets/Scripts/Health.cs" />
+      <File FileName="Assets/GameAssets/Scripts/PlayerController.cs" />
+      <File FileName="Assets/GameAssets/Scripts/Coin.cs" />
+      <File FileName="Assets/GameAssets/Scripts/Spikes.cs" />
+      <File FileName="Assets/GameAssets/Scripts/Enemy.cs" Line="45" Column="10" />
+      <File FileName="Assets/GameAssets/Scripts/Jumper.cs" Line="30" Column="1" />
       <File FileName="Assets/GameAssets/Scripts/Lever.cs" Line="14" Column="24" />
       <File FileName="Assets/GameAssets/Scripts/MovingPlatform.cs" Line="59" Column="10" />
+      <File FileName="Assets/GameAssets/Scripts/TurtleEnemy.cs" Line="39" Column="22" />
+      <File FileName="Assets/GameAssets/Scripts/CrazyFishEnemy.cs" Line="21" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +20,7 @@
             <Node name="Assets" expanded="True">
               <Node name="GameAssets" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="MovingPlatform.cs" selected="True" />
+                  <Node name="CrazyFishEnemy.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -29,7 +31,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f9d4ea30-e295-4711-a85b-3ddb6cf985a9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f53033e4-71b5-41cb-8573-ffb71b01146b" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
