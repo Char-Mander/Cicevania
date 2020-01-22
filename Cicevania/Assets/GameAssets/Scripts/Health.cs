@@ -41,6 +41,7 @@ public class Health : MonoBehaviour
                     GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
                     FindObjectOfType<CharacterCanvasController>().UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
                     GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
+                    GameManager._instance.ResetValues(false, false, true);
                 }
                 else
                 {

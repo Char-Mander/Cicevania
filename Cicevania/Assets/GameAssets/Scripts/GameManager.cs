@@ -42,11 +42,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ResetValues()
+    public void ResetValues(bool lvl, bool lifes, bool coins)
     {
-        currentLvl = 1;
-        currentLifes = initLifes;
-        coinAmmount = 0;
+        if(lvl) currentLvl = 1;
+        if(lifes) currentLifes = initLifes;
+        if(coins) coinAmmount = 0;
     }
 
     public int GetMaxLevels(){ return maxLevels; }

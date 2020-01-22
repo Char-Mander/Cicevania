@@ -12,6 +12,12 @@ public class CharacterCanvasController : MonoBehaviour
     [SerializeField]
     private Text txtCoinAmmount;
 
+    private void Start()
+    {
+        UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
+        UpdateCoinAmmount(GameManager._instance.coinAmmount);
+    }
+
     public void UpdateHealthBar(int current, int max)
 	{
         imgHealthBar.fillAmount = (float)current / (float)max;
@@ -24,7 +30,8 @@ public class CharacterCanvasController : MonoBehaviour
 
     public void UpdateCoinAmmount(int ammount)
     {
-        if(txtCoinAmmount != null)txtCoinAmmount.text = "x "+ ammount.ToString();
+        print("Entra al updateCoinAmmount");
+        if(txtCoinAmmount != null) txtCoinAmmount.text = "x "+ ammount.ToString();
     }
 
 }

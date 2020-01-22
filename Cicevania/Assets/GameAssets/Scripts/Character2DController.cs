@@ -72,7 +72,6 @@ public class Character2DController : MonoBehaviour
 				crouch = true;
 			}
 		}
-        print("Grounded: " + m_Grounded);
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{

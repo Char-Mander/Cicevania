@@ -92,6 +92,7 @@
     <Compile Include="Assets\GameAssets\Scripts\ShooterEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Spikes.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Star.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\SurpriseBox.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Teleport.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Tube.cs" />
     <Compile Include="Assets\GameAssets\Scripts\TurtleEnemy.cs" />

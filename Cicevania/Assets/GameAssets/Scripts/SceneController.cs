@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
     public void LoadGameOver()
     {
         StartCoroutine(WaitForLoad());
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GameOver");
     }
 
     IEnumerator WaitForLoad()
