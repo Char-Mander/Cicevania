@@ -25,11 +25,19 @@ public class FrogEnemy : Enemy
     public override void Attack()
     {
         if (canAttack) {
+            float rotation = (this.transform.position.x < target.transform.position.x) ? -1 : 1;
+            transform.localScale = new Vector3(rotation, 1, 1);
             canAttack = false;
             Vector2 jumpVec = (vecToTarget.normalized * jumpForce) + (Vector2.up * jumpForce);
             rb.AddForce(jumpVec, ForceMode2D.Impulse);
             StartCoroutine(Reload());
+            Animations();
         }
+    }
+
+    void Animations()
+    {
+        anim.SetFloat("VelY", rb.velocity.y);
     }
 
     IEnumerator Reload() {

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isJumping)
                 isJumping = true;
-            else if (!isDoubleJumping)
+            if (!isDoubleJumping && !cController.GetIsGrounded())
             {
                 isDoubleJumping = true;
                 cController.Jump();

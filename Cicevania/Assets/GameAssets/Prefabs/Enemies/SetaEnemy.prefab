@@ -172,11 +172,12 @@ MonoBehaviour:
   anim: {fileID: 0}
   rb: {fileID: 0}
   detectDist: 3
+  moveSpeed: 1.5
   lm:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 1280
+  vecToTarget: {x: 0, y: 0}
   damage: 30
-  moveSpeed: 1.5
 --- !u!61 &1751195560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &2531426264285196615
 MonoBehaviour:
@@ -388,4 +389,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgHealthBar: {fileID: 2531426264230526011}
+  txtLifesAmmount: {fileID: 0}
   txtCoinAmmount: {fileID: 0}

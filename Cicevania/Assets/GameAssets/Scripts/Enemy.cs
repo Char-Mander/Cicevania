@@ -6,17 +6,17 @@ public class Enemy : MonoBehaviour
 {
 
     public Transform target;
-    public Animation anim;
+    [HideInInspector]
+    public Animator anim;
     public Rigidbody2D rb;
     public float detectDist;
+    public float moveSpeed;
     public LayerMask lm;
     [HideInInspector]
     public Vector2 vecToTarget;
 
     [SerializeField]
     private int damage;
-    [SerializeField]
-    private float moveSpeed;
     
     float horizontal = -1;
     bool noCollision = true;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Start()
     {
-        anim = GetComponent<Animation>();
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         if(target == null)
         {

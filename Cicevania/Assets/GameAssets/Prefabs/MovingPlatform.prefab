@@ -165,7 +165,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5155851465464590942}
-  - component: {fileID: 5155851465464590943}
   m_Layer: 0
   m_Name: MovingPlatform
   m_TagString: Untagged
@@ -180,7 +179,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155851465464590913}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.46, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -189,28 +188,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5155851465464590943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155851465464590913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5b16346a80d43179c47865344b456a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wayPoints:
-  - {fileID: 5155851464930150525}
-  - {fileID: 5155851465133624172}
-  - {fileID: 5155851465800534278}
-  - {fileID: 5155851464485164768}
-  - {fileID: 5155851465046220509}
-  - {fileID: 5155851466182202056}
-  platform: {fileID: 5155851466333355633}
-  moveSpeed: 3
-  waitTime: 0.5
 --- !u!1 &5155851465800534281
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,8 +258,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5155851466333355599}
   - component: {fileID: 5155851466333355598}
-  - component: {fileID: 5155851466333355596}
   - component: {fileID: 5155851466333355597}
+  - component: {fileID: 1187261193}
+  - component: {fileID: 1187261194}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -298,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155851466333355633}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.67, y: -2.9506, z: 0}
+  m_LocalPosition: {x: 4.868, y: -2.9506, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5155851465464590942}
@@ -346,38 +324,12 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1.14263, y: 0.16062967}
+  m_Size: {x: 1.5387092, y: 0.518728}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5155851466333355596
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155851466333355633}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2, y: 0.5}
-    newSize: {x: 1.14263, y: 0.16062967}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 1
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.08}
-  m_EdgeRadius: 0
 --- !u!50 &5155851466333355597
 Rigidbody2D:
   serializedVersion: 4
@@ -399,3 +351,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &1187261193
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155851466333355633}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2, y: 0.5}
+    newSize: {x: 1.5387092, y: 0.518728}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1187261194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5155851466333355633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5b16346a80d43179c47865344b456a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPoints:
+  - {fileID: 5155851464930150525}
+  - {fileID: 5155851465133624172}
+  - {fileID: 5155851465800534278}
+  - {fileID: 5155851464485164768}
+  - {fileID: 5155851465046220509}
+  - {fileID: 5155851466182202056}
+  moveSpeed: 2
+  waitTime: 0.5
+  antibug: {fileID: 6200000, guid: afd968de845dd41b9b2111b5d51f2152, type: 2}
+  onPlatform: {fileID: 6200000, guid: f3a9e934c5850fc4584a23d65943cbc1, type: 2}
