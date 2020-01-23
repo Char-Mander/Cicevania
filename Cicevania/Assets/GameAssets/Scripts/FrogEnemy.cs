@@ -20,6 +20,7 @@ public class FrogEnemy : Enemy
     public override void Update()
     {
         DetectTarget(target);
+        Animations();
     }
 
     public override void Attack()
@@ -31,7 +32,6 @@ public class FrogEnemy : Enemy
             Vector2 jumpVec = (vecToTarget.normalized * jumpForce) + (Vector2.up * jumpForce);
             rb.AddForce(jumpVec, ForceMode2D.Impulse);
             StartCoroutine(Reload());
-            Animations();
         }
     }
 
@@ -44,5 +44,6 @@ public class FrogEnemy : Enemy
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
     }
+    
 }
 

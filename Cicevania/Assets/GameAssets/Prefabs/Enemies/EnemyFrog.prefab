@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1913673443556920244}
   - component: {fileID: 1913673443556920245}
   - component: {fileID: 1913673443556920242}
-  - component: {fileID: 1913673443556920241}
   - component: {fileID: 1913673443556920240}
+  - component: {fileID: 6252681017859710040}
   m_Layer: 9
   m_Name: EnemyFrog
   m_TagString: Enemy
@@ -141,20 +141,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1913673443556920241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913673443556920246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eaf6dfffad89400f8305a52798b6935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  chCanvas: {fileID: 1913673445006938831}
 --- !u!114 &1913673443556920240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,17 +153,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c297da7e9cfc428eb08744c12206eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  lm:
-    serializedVersion: 2
-    m_Bits: 311
-  detectDist: 5
   target: {fileID: 0}
   anim: {fileID: 0}
-  rigi: {fileID: 0}
+  rb: {fileID: 0}
+  detectDist: 5
+  moveSpeed: 0
+  lm:
+    serializedVersion: 2
+    m_Bits: 1280
   vecToTarget: {x: 0, y: 0}
+  damage: 20
   jumpForce: 4
   attackDelay: 3
+--- !u!114 &6252681017859710040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913673443556920246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdefffa7119d4161939bb58e613bd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 9092833540919169651}
+  maxHealth: 30
 --- !u!1 &1913673444893388190
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ GameObject:
   - component: {fileID: 1913673445006938827}
   - component: {fileID: 1913673445006938828}
   - component: {fileID: 1913673445006938829}
-  - component: {fileID: 1913673445006938831}
+  - component: {fileID: 9092833540919169651}
   m_Layer: 0
   m_Name: EnemyCanvas
   m_TagString: Untagged
@@ -350,7 +351,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1913673445006938831
+--- !u!114 &9092833540919169651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,8 +360,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1913673445006938832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef64809ec369048e288d03c21942f074, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1bbbed0f3104f3b978e9e6c46669db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imgHealthBar: {fileID: 1913673444893388189}
-  txtGemAmmount: {fileID: 0}
+  txtLifesAmmount: {fileID: 0}
+  txtCoinAmmount: {fileID: 0}
+  panelTutorial: {fileID: 0}

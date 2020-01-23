@@ -45,9 +45,7 @@ public class CrazyFishEnemy : Enemy
             Collider2D hit = Physics2D.OverlapCircle(groundDetector.position, detectRadius, groundDetectorLM);
             if (hit == null)
             {
-                Vector3 aux = transform.localScale;
-                aux.x *= -1;
-                transform.localScale = aux;
+                ChangeScale();
             }
                 
         }
@@ -67,6 +65,18 @@ public class CrazyFishEnemy : Enemy
             anim.SetTrigger("Crazy");
             GetComponent<Collider2D>().sharedMaterial = slide;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ground")) ChangeScale();
+    }
+
+    private void ChangeScale()
+    {
+        Vector3 aux = transform.localScale;
+        aux.x *= -1;
+        transform.localScale = aux;
     }
 
     private void OnDrawGizmos()

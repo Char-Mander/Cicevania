@@ -169,6 +169,20 @@ public class PlayerController : MonoBehaviour
         areaSuperAttack.SetActive(false);
     }
 
+    public void IncreaseAttackDamageOn(float time, int value)
+    {
+        StartCoroutine(IncreateAttakDamage(time, value));
+    }
+
+    IEnumerator IncreateAttakDamage(float time, int value)
+    {
+        jumpDamage *= value;
+        superAttackDamage *= value;
+        yield return new WaitForSeconds(time);
+        jumpDamage /= value;
+        superAttackDamage /= value;
+    }
+
     public void GetDamage(int damage)
     {
         if (!godMode)

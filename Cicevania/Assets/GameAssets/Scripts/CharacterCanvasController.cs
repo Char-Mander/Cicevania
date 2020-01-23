@@ -11,11 +11,15 @@ public class CharacterCanvasController : MonoBehaviour
     private Text txtLifesAmmount;
     [SerializeField]
     private Text txtCoinAmmount;
+    [SerializeField]
+    private GameObject panelTutorial;
 
     private void Start()
     {
         UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
         UpdateCoinAmmount(GameManager._instance.coinAmmount);
+        if (GameManager._instance.GetCurrentLvl() == 1 && panelTutorial != null) panelTutorial.SetActive(true);
+        else if(panelTutorial !=null) panelTutorial.SetActive(false);
     }
 
     public void UpdateHealthBar(int current, int max)
@@ -30,7 +34,7 @@ public class CharacterCanvasController : MonoBehaviour
 
     public void UpdateCoinAmmount(int ammount)
     {
-        print("Entra al updateCoinAmmount");
+        //print("Entra al updateCoinAmmount");
         if(txtCoinAmmount != null) txtCoinAmmount.text = "x "+ ammount.ToString();
     }
 

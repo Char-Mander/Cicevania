@@ -23,8 +23,9 @@ public class Coin : MonoBehaviour
 
     void PickUp()
     {
+        //print("Pickup a coin");
         GameManager._instance.coinAmmount += coinValue;
-        print("Current coins: " + GameManager._instance.coinAmmount);
+        //print("Current coins: " + GameManager._instance.coinAmmount);
         playerCanvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
         Destroy(this.gameObject);
     }

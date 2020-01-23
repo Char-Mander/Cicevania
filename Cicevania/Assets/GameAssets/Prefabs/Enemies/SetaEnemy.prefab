@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2531426262973656852}
   - component: {fileID: 2531426262973656855}
   - component: {fileID: 2531426262973656854}
-  - component: {fileID: 2531426262973656841}
   - component: {fileID: 1751195560}
+  - component: {fileID: 114540094710854330}
   m_Layer: 9
   m_Name: SetaEnemy
   m_TagString: Enemy
@@ -155,29 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  maxHealth: 3
---- !u!114 &2531426262973656841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2531426262973656848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d516f4d2c0c54105be47511d0c02ce7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  anim: {fileID: 0}
-  rb: {fileID: 0}
-  detectDist: 3
-  moveSpeed: 1.5
-  lm:
-    serializedVersion: 2
-    m_Bits: 1280
-  vecToTarget: {x: 0, y: 0}
-  damage: 30
+  maxHealth: 10
 --- !u!61 &1751195560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -204,6 +182,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7633574, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &114540094710854330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531426262973656848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924e0f9fd7e68ee479d81af88ecdc75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  anim: {fileID: 0}
+  rb: {fileID: 0}
+  detectDist: 0
+  moveSpeed: 1.5
+  lm:
+    serializedVersion: 2
+    m_Bits: 1280
+  vecToTarget: {x: 0, y: 0}
+  damage: 30
 --- !u!1 &2531426264230526009
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,3 +391,4 @@ MonoBehaviour:
   imgHealthBar: {fileID: 2531426264230526011}
   txtLifesAmmount: {fileID: 0}
   txtCoinAmmount: {fileID: 0}
+  panelTutorial: {fileID: 0}

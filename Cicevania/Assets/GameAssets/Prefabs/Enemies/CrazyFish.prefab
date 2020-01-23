@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123903914332709539}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DetectGround
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 1123903914723960610}
   - component: {fileID: 1123903914723960609}
   - component: {fileID: 1123903914723960608}
-  m_Layer: 0
+  - component: {fileID: 8562798689380953998}
+  m_Layer: 9
   m_Name: CrazyFish
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -215,6 +216,32 @@ MonoBehaviour:
   groundDetectorLM:
     serializedVersion: 2
     m_Bits: 256
+--- !u!61 &8562798689380953998
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123903914723960639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012212753, y: 0.3199997}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.030796, y: 0.39575195}
+  m_EdgeRadius: 0
 --- !u!1 &1123903914768364596
 GameObject:
   m_ObjectHideFlags: 0

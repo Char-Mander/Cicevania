@@ -46,24 +46,10 @@ public class Enemy : MonoBehaviour
             setHeight = true;
         }
         transform.position += pos + (Vector3.right * moveSpeed * Time.deltaTime * horizontal);
-        // Llamar en el fixedupdate
-        //rb.AddForce(Vector3.right * horizontal * moveSpeed * Time.deltaTime);
-        //print(rb.velocity.x);
     }
 
     public virtual void DetectTarget(Transform target)
     {
-        /* if(Vector2.Distance(this.transform.position, target.position) <= detectDist)
-         {
-             Vector2 dirToTarget = new Vector2(target.position.x - this.transform.position.x, target.position.y - this.transform.position.y).normalized;
-             RaycastHit2D hit = Physics2D.Raycast(this.transform.position, dirToTarget, detectDist, lm);
-             Debug.DrawLine(transform.position, hit.point, Color.green);
-             if (hit.collider.CompareTag("Player"))
-             {
-                 //Debug.DrawLine(transform.position, hit.point, Color.red);
-                 Attack();
-             }
-         }*/
         vecToTarget = target.position - transform.position;
         if (vecToTarget.magnitude < detectDist)
         {
@@ -82,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Ground") || collision.CompareTag("Player")) && noCollision)
+        if ((collision.CompareTag("Ground") || (collision.CompareTag("Player")) && noCollision) || collision.CompareTag("Object"))
         {
             noCollision = false;
             horizontal = -horizontal;
