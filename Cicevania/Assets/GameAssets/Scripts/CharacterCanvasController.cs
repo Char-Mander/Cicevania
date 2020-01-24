@@ -7,12 +7,16 @@ public class CharacterCanvasController : MonoBehaviour
 {
     [SerializeField]
     private Image imgHealthBar;
-    [SerializeField]
-    private Text txtLifesAmmount;
+    /*[SerializeField]
+    private Text txtLifesAmmount;*/
     [SerializeField]
     private Text txtCoinAmmount;
     [SerializeField]
     private GameObject panelTutorial;
+    [SerializeField]
+    private GameObject lifeImage;
+    [SerializeField]
+    private Transform contentLifes;
 
     private void Start()
     {
@@ -25,9 +29,21 @@ public class CharacterCanvasController : MonoBehaviour
         imgHealthBar.fillAmount = (float)current / (float)max;
 	}
 
-    public void UpdateLifesAmmount(int ammount)
+    public void UpdateLifesAmmount(int currentLifes)
     {
-        if (txtLifesAmmount != null) txtLifesAmmount.text = "x " + ammount.ToString();
+        // if (txtLifesAmmount != null) txtLifesAmmount.text = "x " + ammount.ToString();
+        if (contentLifes.childCount > currentLifes)
+        {
+            Destroy(contentLifes.GetChild(0).gameObject);
+        }
+        else if (contentLifes.childCount < currentLifes)
+        {
+            int dif = currentLifes - contentLifes.childCount;
+            for(int i=0; i<dif; i++)
+            {
+                Instantiate(lifeImage, contentLifes);
+            }
+        }
     }
 
     public void UpdateCoinAmmount(int ammount)

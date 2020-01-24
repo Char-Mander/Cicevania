@@ -30,10 +30,6 @@ public class CheckPointController : MonoBehaviour
                 player.GetComponent<Health>().GainHealth(100000000);
                 player.transform.position = checkPoint.GetSpawnPoint().position;
                 player.GetComponent<PlayerController>().GodModeOn(2);
-                CharacterCanvasController playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<CharacterCanvasController>();
-                playerCanvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
-                playerCanvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
-                playerCanvas.UpdateHealthBar(player.GetComponent<Health>().GetCurrentHealth(), player.GetComponent<Health>().GetMaxHealth());
             }
         }
     }

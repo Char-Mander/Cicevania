@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if (this.gameObject.CompareTag("Player")) canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
     }
 
     public void GainHealth(int ammount)
@@ -50,6 +51,9 @@ public class Health : MonoBehaviour
             GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
             GameManager._instance.ResetValues(false, false, true);
             FindObjectOfType<CheckPointController>().Respawn();
+            canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
+            canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
+            canvas.UpdateHealthBar(currentHealth, maxHealth);
         }
         else
         {
