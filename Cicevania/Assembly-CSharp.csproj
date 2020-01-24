@@ -74,6 +74,8 @@
     <Compile Include="Assets\GameAssets\Scripts\AttackPowerUp.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Character2DController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\CharacterCanvasController.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\CheckPoint.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\CheckPointController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Coin.cs" />
     <Compile Include="Assets\GameAssets\Scripts\CrazyFishEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\DataManager.cs" />

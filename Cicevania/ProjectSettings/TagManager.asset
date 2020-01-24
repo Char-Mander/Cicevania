@@ -8,6 +8,7 @@ TagManager:
   - Tube
   - Ground
   - Object
+  - PlayerCanvas
   layers:
   - Default
   - TransparentFX

@@ -27,8 +27,8 @@ public class Health : MonoBehaviour
         currentHealth -= ammount;
         if (currentHealth <= 0)
         {
-            this.gameObject.GetComponent<Animator>().SetTrigger("Die");
             if (this.CompareTag("Enemy")){
+                this.gameObject.GetComponent<Animator>().SetTrigger("Die");
                 GetComponent<SpriteRenderer>().flipY = true;
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
@@ -36,24 +36,25 @@ public class Health : MonoBehaviour
             }
             else if (this.CompareTag("Player"))
             {
-                if (GameManager._instance.GetCurrentLifes() > 1)
-                {
-                    GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
-                    FindObjectOfType<CharacterCanvasController>().UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
-                    GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
-                    GameManager._instance.ResetValues(false, false, true);
-                }
-                else
-                {
-                    GameManager._instance.sceneC.LoadGameOver();
-                    //Resetear en GameOver los valores
-                }
-                    
-
+                LoseLife();
             }
-            Destroy(this.gameObject, 2);
         }
-        if(canvas!=null)canvas.UpdateHealthBar(currentHealth, maxHealth);
+        if(canvas!=null) canvas.UpdateHealthBar(currentHealth, maxHealth);
+    }
+
+    void LoseLife()
+    {
+        if (GameManager._instance.GetCurrentLifes() > 1)
+        {
+            GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
+            GameManager._instance.ResetValues(false, false, true);
+            FindObjectOfType<CheckPointController>().Respawn();
+        }
+        else
+        {
+            GameManager._instance.sceneC.LoadGameOver();
+            //Resetear en GameOver los valores
+        }
     }
 
     public int GetMaxHealth() { return maxHealth; }

@@ -13,6 +13,7 @@ public class AttackPowerUp : MonoBehaviour
 
     Rigidbody2D rb;
     int horizontal;
+    bool canJump = false;
 
     private void Start()
     {
@@ -24,11 +25,23 @@ public class AttackPowerUp : MonoBehaviour
 
     private void Update()
     {
+        if (!canJump) canJump = true;
         transform.position += Vector3.right * moveSpeed * Time.deltaTime * horizontal;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((collision.CompareTag("Ground") || collision.CompareTag("Enemy")) && canJump)
+        {
+             rb.AddForce(new Vector2(horizontal, 1) * 1.5f, ForceMode2D.Impulse);
+             canJump = false;
+             StartCoroutine(WaitForJump()); 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("collisiona en el enter con : " + collision.tag);
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerController>().IncreaseAttackDamageOn(duration, increaseValue);
@@ -38,6 +51,12 @@ public class AttackPowerUp : MonoBehaviour
         {
             horizontal = -horizontal;
         }
+    }
+
+    IEnumerator WaitForJump()
+    {
+        yield return new WaitForSeconds(3f);
+        canJump = true;
     }
 
 }

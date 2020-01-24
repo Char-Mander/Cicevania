@@ -11,6 +11,7 @@ public class HealthPowerUp : MonoBehaviour
 
     Rigidbody2D rb;
     float horizontal;
+    bool canJump = false;
 
     private void Start()
     {
@@ -18,11 +19,22 @@ public class HealthPowerUp : MonoBehaviour
         float value = (Random.Range(0, 1) == 0) ? 1 : -1;
         horizontal = value;
         rb.AddForce(new Vector2(value/2, 1) * 2, ForceMode2D.Impulse);
+        StartCoroutine(WaitForJump());
     }
 
     private void Update()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime * horizontal;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if ((collision.CompareTag("Ground") || collision.CompareTag("Enemy")) && canJump)
+        {
+             rb.AddForce(new Vector2(horizontal, 1) * 1.5f, ForceMode2D.Impulse);
+             canJump = false;
+             StartCoroutine(WaitForJump());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,10 +44,16 @@ public class HealthPowerUp : MonoBehaviour
             collision.GetComponent<Health>().GainHealth(recoverHP);
             Destroy(this.gameObject);
         }
-        else if (collision.CompareTag("Ground"))
+        else if (collision.CompareTag("Ground") || collision.CompareTag("Enemy"))
         {
-            horizontal = -horizontal;
+           horizontal = -horizontal;
         }
+    }
+
+    IEnumerator WaitForJump()
+    {
+        yield return new WaitForSeconds(1f);
+        canJump = true;
     }
 
 }

@@ -16,8 +16,6 @@ public class CharacterCanvasController : MonoBehaviour
 
     private void Start()
     {
-        UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
-        UpdateCoinAmmount(GameManager._instance.coinAmmount);
         if (GameManager._instance.GetCurrentLvl() == 1 && panelTutorial != null) panelTutorial.SetActive(true);
         else if(panelTutorial !=null) panelTutorial.SetActive(false);
     }
