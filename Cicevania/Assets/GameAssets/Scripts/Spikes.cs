@@ -11,7 +11,6 @@ public class Spikes : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            print("Le hace daño");
             collision.GetComponent<PlayerController>().GetDamage(damage);
         }
     }

@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1913673443556920243}
   - component: {fileID: 1913673443556920239}
   - component: {fileID: 1913673443556920244}
-  - component: {fileID: 1913673443556920245}
   - component: {fileID: 1913673443556920242}
   - component: {fileID: 1913673443556920240}
   - component: {fileID: 6252681017859710040}
+  - component: {fileID: 731920402}
   m_Layer: 9
   m_Name: EnemyFrog
   m_TagString: Enemy
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 86ca59b9bca0e409b9ba2784fbe69f01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,22 +104,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1913673443556920245
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913673443556920246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: -0.03}
-  serializedVersion: 2
-  m_Radius: 0.3
 --- !u!50 &1913673443556920242
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +140,7 @@ MonoBehaviour:
   target: {fileID: 0}
   anim: {fileID: 0}
   rb: {fileID: 0}
-  detectDist: 5
+  detectDist: 3
   moveSpeed: 0
   lm:
     serializedVersion: 2
@@ -179,6 +163,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 9092833540919169651}
   maxHealth: 30
+--- !u!60 &731920402
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913673443556920246}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.09375, y: 1}
+    newSize: {x: 0.35, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.22117996, y: 0.2296648}
+      - {x: -0.10406685, y: 0.2186923}
+      - {x: -0.06583691, y: 0.14907217}
+      - {x: -0.015969276, y: 0.25725603}
+      - {x: 0.10822582, y: 0.24742317}
+      - {x: 0.15484428, y: 0.20791435}
+      - {x: 0.23500729, y: 0.1546607}
+      - {x: 0.2608595, y: 0.0475955}
+      - {x: 0.3840294, y: 0.029089928}
+      - {x: 0.39579487, y: -0.09289312}
+      - {x: 0.2701645, y: -0.20632601}
+      - {x: 0.35807896, y: -0.2633896}
+      - {x: 0.32161713, y: -0.34091234}
+      - {x: -0.40666962, y: -0.3434477}
+      - {x: -0.43710518, y: -0.2956128}
+      - {x: -0.4151926, y: -0.23031569}
+      - {x: -0.30051804, y: -0.22552538}
+      - {x: -0.320858, y: -0.18268919}
+      - {x: -0.39529228, y: -0.14549255}
+      - {x: -0.4170475, y: -0.094285965}
+      - {x: -0.36480236, y: 0.04303646}
+      - {x: -0.28245068, y: 0.043039322}
+      - {x: -0.31239414, y: 0.16149998}
 --- !u!1 &1913673444893388190
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +342,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &1913673445006938828
 MonoBehaviour:

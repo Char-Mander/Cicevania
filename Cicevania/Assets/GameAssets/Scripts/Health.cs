@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
 
     public void LoseHealth(int ammount)
     {
+        print("Ha perdido " + ammount + " de vida el enemigo " + this.gameObject.name);
         currentHealth -= ammount;
         if (currentHealth <= 0)
         {

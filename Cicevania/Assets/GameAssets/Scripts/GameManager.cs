@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         //References
         data = GetComponent<DataManager>();
         optionsC = GetComponentInChildren<OptionsController>();
-        //optionsC.gameObject.SetActive(false);
         sceneC = GetComponent<SceneController>();
         //Init
         data.LoadData();

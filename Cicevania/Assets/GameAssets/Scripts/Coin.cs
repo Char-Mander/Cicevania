@@ -10,22 +10,17 @@ public class Coin : MonoBehaviour
 
     private void Start()
     {
-        playerCanvas = FindObjectOfType<CharacterCanvasController>();    
+        playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<CharacterCanvasController>();    
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            PickUp();
-        }
+        if (collision.CompareTag("Player"))  PickUp();
     }
 
     void PickUp()
     {
-        //print("Pickup a coin");
         GameManager._instance.coinAmmount += coinValue;
-        //print("Current coins: " + GameManager._instance.coinAmmount);
         playerCanvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
         Destroy(this.gameObject);
     }

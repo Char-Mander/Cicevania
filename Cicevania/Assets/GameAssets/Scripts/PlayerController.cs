@@ -164,7 +164,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitForDoSuperAttackAgain()
     {
-        yield return new WaitForSeconds(0.65f);
+        yield return new WaitForSeconds(0.45f);
         canDoSuperAttack = true;
         areaSuperAttack.SetActive(false);
     }
