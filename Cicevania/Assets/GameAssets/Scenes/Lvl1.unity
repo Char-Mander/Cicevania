@@ -18204,6 +18204,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -6.19
       objectReference: {fileID: 0}
+    - target: {fileID: 5155851466333355633, guid: aa6db69f053e2d6478e7a91e8aa0625c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6db69f053e2d6478e7a91e8aa0625c, type: 3}
 --- !u!1001 &5698174575126075222
@@ -18423,12 +18428,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b901dbb4063054c4bb00bee5fdde5d0f, type: 3}
---- !u!224 &6862980525741892507 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
-    type: 3}
-  m_PrefabInstance: {fileID: 8785723954621713808}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8433172964113462839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18520,17 +18519,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8785723953630301277, guid: fd0da5c48c9114141a97e16da96cf777,
+    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
-      propertyPath: contentLifes
-      value: 
-      objectReference: {fileID: 6862980525741892507}
-    - target: {fileID: 8785723953630301277, guid: fd0da5c48c9114141a97e16da96cf777,
-        type: 3}
-      propertyPath: lifeImage
-      value: 
-      objectReference: {fileID: 6944804210798552338, guid: 1a6e030e2b9ae0744ab61844bafe88dc,
-        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18634,11 +18627,6 @@ PrefabInstance:
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
-        type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

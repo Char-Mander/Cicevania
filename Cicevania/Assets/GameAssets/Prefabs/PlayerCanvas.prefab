@@ -840,8 +840,9 @@ MonoBehaviour:
   imgHealthBar: {fileID: 8785723955088936583}
   txtCoinAmmount: {fileID: 8785723953918802764}
   panelTutorial: {fileID: 1378959343}
-  lifeImage: {fileID: 0}
-  contentLifes: {fileID: 0}
+  lifeImage: {fileID: 6944804210798552338, guid: 1a6e030e2b9ae0744ab61844bafe88dc,
+    type: 3}
+  contentLifes: {fileID: 6862980525741892507}
 --- !u!1 &8785723953918802762
 GameObject:
   m_ObjectHideFlags: 0

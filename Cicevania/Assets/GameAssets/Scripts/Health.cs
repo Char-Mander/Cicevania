@@ -38,18 +38,18 @@ public class Health : MonoBehaviour
             }
             else if (this.CompareTag("Player"))
             {
-                LoseLife();
+                GameManager._instance.LoseLife();
             }
         }
         if(canvas!=null) canvas.UpdateHealthBar(currentHealth, maxHealth);
     }
 
+    /*
     void LoseLife()
     {
         if (GameManager._instance.GetCurrentLifes() > 1)
         {
             GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
-            GameManager._instance.ResetValues(false, false, true);
             FindObjectOfType<CheckPointController>().Respawn();
             canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
             canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
             GameManager._instance.sceneC.LoadGameOver();
             //Resetear en GameOver los valores
         }
-    }
+    }*/
 
     public int GetMaxHealth() { return maxHealth; }
 
