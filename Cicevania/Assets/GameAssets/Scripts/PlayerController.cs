@@ -112,7 +112,6 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !canDoSuperAttack)
         {
-            print("Ha entrado y ha detectado al enemigo");
             collision.GetComponent<Health>().LoseHealth(superAttackDamage);
         }
         
@@ -181,6 +180,18 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         jumpDamage /= value;
         superAttackDamage /= value;
+    }
+
+    public void IncreaseJumpForceOn(float time, float value)
+    {
+        StartCoroutine(IncreaseJumpForce(time, value));
+    }
+
+    IEnumerator IncreaseJumpForce(float time, float value)
+    {
+        cController.SetJumpForce(cController.GetJumpForce() + value);
+        yield return new WaitForSeconds(time);
+        cController.SetJumpForce(cController.GetJumpForce() - value);
     }
 
     public void GetDamage(int damage)

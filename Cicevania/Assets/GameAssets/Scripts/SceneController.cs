@@ -9,6 +9,8 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(WaitForLoad());
         SceneManager.LoadScene("Lvl" + lvl);
+        GameManager._instance.SetCurrentLvl(lvl);
+        GameManager._instance.InitData();
     }
 
     public void LoadMenu()

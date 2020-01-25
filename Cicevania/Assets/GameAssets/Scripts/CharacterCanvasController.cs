@@ -7,8 +7,6 @@ public class CharacterCanvasController : MonoBehaviour
 {
     [SerializeField]
     private Image imgHealthBar;
-    /*[SerializeField]
-    private Text txtLifesAmmount;*/
     [SerializeField]
     private Text txtCoinAmmount;
     [SerializeField]

@@ -158,4 +158,11 @@ public class Character2DController : MonoBehaviour
 	}
 
     public bool GetIsGrounded() { return m_Grounded; }
+
+    public float GetJumpForce() { return m_JumpForce; }
+
+    public void SetJumpForce(float value)
+    {
+        m_JumpForce = value;
+    }
 }

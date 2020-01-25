@@ -38,36 +38,14 @@ public class GameManager : MonoBehaviour
         sceneC = GetComponent<SceneController>();
         //Init
         data.LoadData();
+        InitData();
 
     }
 
-    public void LoseLife()
-    {
-        if (currentLifes > 1)
-        {
-            currentLifes -= 1;
-            FindObjectOfType<CheckPointController>().Respawn();
-            CharacterCanvasController canvas = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<CharacterCanvasController>();
-            canvas.UpdateLifesAmmount(currentLifes);
-            canvas.UpdateCoinAmmount(coinAmmount);
-            canvas.UpdateHealthBar(GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().GetCurrentHealth(), GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().GetMaxHealth());
-        }
-        else
-        {
-            sceneC.LoadGameOver();
-            //Resetear en GameOver los valores
-        }
-    }
-
-    public void ResetValues()
-    {
-        currentLvl = 1;
-        currentLifes = initLifes;
-    }
-
-    public void ResetScore()
+    public void InitData()
     {
         coinAmmount = 0;
+        currentLifes = initLifes;
     }
 
     public int GetMaxLevels(){ return maxLevels; }
@@ -86,5 +64,6 @@ public class GameManager : MonoBehaviour
     public void SetCurrentLifes(int currentLifes)
     {
         this.currentLifes = currentLifes;
+        if (this.currentLifes > initLifes) this.currentLifes = initLifes;
     }
 }

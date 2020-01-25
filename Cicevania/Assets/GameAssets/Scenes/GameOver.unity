@@ -1121,8 +1121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410910161}
-        m_MethodName: BtnShowLevels
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnLoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410910161}
-        m_MethodName: BtnExitGame
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnBackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1384,7 +1384,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847489335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2055,7 +2055,7 @@ RectTransform:
   - {fileID: 1028092752}
   - {fileID: 523455601}
   m_Father: {fileID: 1666581204}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2297,8 +2297,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410910161}
-        m_MethodName: BtnExitGame
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnBackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2356,6 +2356,7 @@ GameObject:
   - component: {fileID: 1410910158}
   - component: {fileID: 1410910157}
   - component: {fileID: 1410910161}
+  - component: {fileID: 1410910162}
   m_Layer: 5
   m_Name: GameOverCanvas
   m_TagString: Untagged
@@ -2460,6 +2461,25 @@ MonoBehaviour:
   content: {fileID: 0}
   btnLvlPref: {fileID: 6869986481162621262, guid: 2c453dc8dae2a2c4888ab4cfbb1303f0,
     type: 3}
+--- !u!114 &1410910162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410910156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c94d654463c04a3c832ca5d71d96cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winTitle: {fileID: 523455600}
+  loseTitle: {fileID: 1028092751}
+  winPanel: {fileID: 469911971}
+  nextLevelBtn: {fileID: 687120280}
+  losePanel: {fileID: 99755410}
+  optionsPanel: {fileID: 0}
+  scoreText: {fileID: 677275068}
 --- !u!1 &1447525103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2539,8 +2559,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410910161}
-        m_MethodName: BtnShowLevels
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnLoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2615,7 +2635,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1666581204}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -2723,8 +2743,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1451916878}
   - {fileID: 1207238749}
+  - {fileID: 1451916878}
   - {fileID: 469911972}
   - {fileID: 99755411}
   - {fileID: 1696983338}
@@ -3172,7 +3192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2079091316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3407,6 +3427,10 @@ PrefabInstance:
     - target: {fileID: 577492047, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 941589016, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: maxLevels
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}

@@ -25,7 +25,6 @@ public class Health : MonoBehaviour
 
     public void LoseHealth(int ammount)
     {
-        print("Ha perdido " + ammount + " de vida el enemigo " + this.gameObject.name);
         currentHealth -= ammount;
         if (currentHealth <= 0)
         {
@@ -38,18 +37,18 @@ public class Health : MonoBehaviour
             }
             else if (this.CompareTag("Player"))
             {
-                GameManager._instance.LoseLife();
+                LoseLife();
             }
         }
         if(canvas!=null) canvas.UpdateHealthBar(currentHealth, maxHealth);
     }
 
-    /*
+    
     void LoseLife()
     {
-        if (GameManager._instance.GetCurrentLifes() > 1)
+        GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
+        if (GameManager._instance.GetCurrentLifes() > 0)
         {
-            GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
             FindObjectOfType<CheckPointController>().Respawn();
             canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
             canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
@@ -58,9 +57,8 @@ public class Health : MonoBehaviour
         else
         {
             GameManager._instance.sceneC.LoadGameOver();
-            //Resetear en GameOver los valores
         }
-    }*/
+    }
 
     public int GetMaxHealth() { return maxHealth; }
 

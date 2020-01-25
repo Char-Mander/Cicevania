@@ -8,15 +8,8 @@ public class NextLevelDoor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if(GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels())
-            {
-                GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
-                GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
-            }
-            else
-            {
-                //Cargamos la escena de win
-            }
+             GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
+             GameManager._instance.sceneC.LoadGameOver();
         }
     }
 }
