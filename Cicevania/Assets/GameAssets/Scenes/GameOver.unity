@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6352376641791897883}
-        m_MethodName: LoadMenu
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnLoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2297,8 +2297,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6352376641791897883}
-        m_MethodName: LoadMenu
+      - m_Target: {fileID: 1410910162}
+        m_MethodName: btnLoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3434,15 +3434,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
---- !u!114 &6352376641791897883 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6352376641791897884, guid: 426e91375c86b4eed9d8507d267dbdbb,
-    type: 3}
-  m_PrefabInstance: {fileID: 6352376641791897882}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb0f26ee55bd455f97f8205a2d8ea21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

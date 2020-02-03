@@ -33,7 +33,6 @@ public class ScoreCanvasController : MonoBehaviour
         winTitle.SetActive(hasWin);
         loseTitle.SetActive(!hasWin);
         winPanel.SetActive(hasWin);
-        print("Current lvl: " + GameManager._instance.GetCurrentLvl() + "    maxLvl: " + GameManager._instance.GetMaxLevels() + "     hasWin: " + hasWin);
         nextLevelBtn.SetActive((GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels()) && hasWin);
         losePanel.SetActive(!hasWin);
         //SetUpData
@@ -45,11 +44,19 @@ public class ScoreCanvasController : MonoBehaviour
         return GameManager._instance.coinAmmount + (GameManager._instance.GetCurrentLifes() * 50);
     }
 
+    public void btnLoadMenu()
+    {
+        if (GameManager._instance.GetCurrentLifes() != 0 && GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels())
+        GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
+        GameManager._instance.sceneC.LoadMenu();
+    }
+
     //TODORevisar
     public void btnLoadLevel()
     {
-        if((GameManager._instance.GetCurrentLvl() <= GameManager._instance.GetMaxLevels()))
+        if((GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels() && GameManager._instance.GetCurrentLifes() != 0))
         GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl()+1);
+        else GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
     }
 
 

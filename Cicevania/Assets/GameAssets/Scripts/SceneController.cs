@@ -10,7 +10,6 @@ public class SceneController : MonoBehaviour
         StartCoroutine(WaitForLoad());
         SceneManager.LoadScene("Lvl" + lvl);
         GameManager._instance.SetCurrentLvl(lvl);
-        print("currentlvl al cambiar de escena: " + GameManager._instance.GetCurrentLvl());
         GameManager._instance.InitData();
     }
 
