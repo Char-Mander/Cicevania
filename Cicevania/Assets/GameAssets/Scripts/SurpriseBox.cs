@@ -28,7 +28,7 @@ public class SurpriseBox : MonoBehaviour
             anim.enabled = false;
             GetComponent<SpriteRenderer>().sprite = usedImage;
             GameObject go = Instantiate(posibleObjects[Random.Range(0, posibleObjects.Count)], objectPos);
-            go.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 2 * Time.deltaTime, ForceMode2D.Impulse);
+            if(go.GetComponent<Rigidbody2D>() != null) go.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 2 * Time.deltaTime, ForceMode2D.Impulse);
         }
     }
 }

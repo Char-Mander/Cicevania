@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public SceneController sceneC;
 
     [SerializeField]
-    private int maxLevels = 1;
+    private int maxLevels = 2;
     private int currentLvl = 1;
     [SerializeField]
     private int initLifes = 3;

@@ -17,7 +17,7 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panelLevels.SetActive(false);
+       if(panelLevels!=null) panelLevels.SetActive(false);
     }
 
     // Update is called once per frame
