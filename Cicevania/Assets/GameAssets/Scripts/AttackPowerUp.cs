@@ -41,7 +41,6 @@ public class AttackPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("collisiona en el enter con : " + collision.tag);
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerController>().IncreaseAttackDamageOn(duration, increaseValue);

@@ -169,7 +169,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0010948181, y: 0.32}
+  m_Offset: {x: 0.0010948181, y: 0.3455152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -180,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7633574, y: 0.64}
+  m_Size: {x: 0.7633574, y: 0.5889696}
   m_EdgeRadius: 0
 --- !u!114 &114540094710854330
 MonoBehaviour:
@@ -204,6 +204,7 @@ MonoBehaviour:
     m_Bits: 1280
   vecToTarget: {x: 0, y: 0}
   damage: 30
+  horizontal: -1
 --- !u!1 &2531426264230526009
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgHealthBar: {fileID: 2531426264230526011}
-  txtLifesAmmount: {fileID: 0}
   txtCoinAmmount: {fileID: 0}
   panelTutorial: {fileID: 0}
+  lifeImage: {fileID: 0}
+  contentLifes: {fileID: 0}
+  timeText: {fileID: 0}

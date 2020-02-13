@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int initLifes = 3;
     private int currentLifes = 3;
+
+    //Puntuaciones
     public int coinAmmount { get; set; }
+    public TimeSpan lvlTime { get; set; }
+    public int enemyAmmount { get; set; }
 
     private void Awake()
     {
@@ -44,8 +49,9 @@ public class GameManager : MonoBehaviour
 
     public void InitData()
     {
-        coinAmmount = 0;
         currentLifes = initLifes;
+        coinAmmount = 0;
+        enemyAmmount = 0;
     }
 
     public int GetMaxLevels(){ return maxLevels; }

@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
     CharacterCanvasController playerCanvas;
     [SerializeField]
     private int coinValue;
+    private bool used = false;
 
     private void Start()
     {
@@ -15,7 +16,11 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))  PickUp();
+        if (collision.CompareTag("Player") && !used)
+        {
+            used = true;
+            PickUp();
+        }
     }
 
     void PickUp()

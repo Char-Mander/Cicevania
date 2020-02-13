@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
                 GetComponent<SpriteRenderer>().flipY = true;
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
+                GameManager._instance.enemyAmmount++;
                 Destroy(this.gameObject, 3);
             }
             else if (this.CompareTag("Player"))

@@ -29,11 +29,11 @@ public class CrazyFishEnemy : Enemy
     {
         //base.Update();
         base.DetectTarget(target);
-        Movement(0);
+        Movement();
         Patrol();
     }
 
-    public override void Movement(float height)
+    public override void Movement()
     {
         if(rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * transform.localScale.x * moveSpeed * Time.deltaTime, ForceMode2D.Force);
     }

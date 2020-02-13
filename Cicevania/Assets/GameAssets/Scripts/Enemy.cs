@@ -17,10 +17,9 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private int damage;
-    
-    float horizontal = -1;
+    [HideInInspector]
+    public float horizontal = -1;
     bool noCollision = true;
-    bool setHeight = false;
 
     public virtual void Start()
     {
@@ -35,17 +34,12 @@ public class Enemy : MonoBehaviour
     public virtual void Update()
     {
         DetectTarget(target);
-        Movement(0);
+        Movement();
     }
 
-    public virtual void Movement(float height)
+    public virtual void Movement()
     {
-        Vector3 pos = Vector3.zero;
-        if(!setHeight && height > 0) {
-            pos = new Vector3(0, height, 0);
-            setHeight = true;
-        }
-        transform.position += pos + (Vector3.right * moveSpeed * Time.deltaTime * horizontal);
+        transform.position += Vector3.right * moveSpeed * Time.deltaTime * horizontal;
     }
 
     public virtual void DetectTarget(Transform target)
@@ -66,7 +60,7 @@ public class Enemy : MonoBehaviour
         print("Enemy attacks");
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.CompareTag("Ground") || (collision.CompareTag("Player")) && noCollision) || collision.CompareTag("Object"))
         {

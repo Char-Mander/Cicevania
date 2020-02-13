@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class CharacterCanvasController : MonoBehaviour
 {
@@ -15,11 +16,13 @@ public class CharacterCanvasController : MonoBehaviour
     private GameObject lifeImage;
     [SerializeField]
     private Transform contentLifes;
+    public Text timeText;
 
     private void Start()
     {
         if (GameManager._instance.GetCurrentLvl() == 1 && panelTutorial != null) panelTutorial.SetActive(true);
         else if(panelTutorial !=null) panelTutorial.SetActive(false);
+        StartCoroutine(UpdateTime());
     }
 
     public void UpdateHealthBar(int current, int max)
@@ -42,6 +45,14 @@ public class CharacterCanvasController : MonoBehaviour
                 Instantiate(lifeImage, contentLifes);
             }
         }
+    }
+
+    IEnumerator UpdateTime()
+    {
+        yield return new WaitForSeconds(1);
+        GameManager._instance.lvlTime = TimeSpan.FromSeconds(Time.timeSinceLevelLoad);
+        timeText.text = string.Format("{0:D2}:{1:D2}", GameManager._instance.lvlTime.Minutes, GameManager._instance.lvlTime.Seconds);
+        StartCoroutine(UpdateTime());
     }
 
     public void UpdateCoinAmmount(int ammount)
