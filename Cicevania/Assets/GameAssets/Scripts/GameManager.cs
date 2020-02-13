@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int coinAmmount { get; set; }
     public TimeSpan lvlTime { get; set; }
     public int enemyAmmount { get; set; }
+    public float goalScore { get; set; }
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class GameManager : MonoBehaviour
         currentLifes = initLifes;
         coinAmmount = 0;
         enemyAmmount = 0;
+        goalScore = 0;
     }
 
     public int GetMaxLevels(){ return maxLevels; }

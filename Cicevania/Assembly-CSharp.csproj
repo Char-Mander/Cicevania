@@ -83,6 +83,7 @@
     <Compile Include="Assets\GameAssets\Scripts\Enemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\FrogEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\GoalMechanism.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Health.cs" />
     <Compile Include="Assets\GameAssets\Scripts\HealthPowerUp.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Jumper.cs" />

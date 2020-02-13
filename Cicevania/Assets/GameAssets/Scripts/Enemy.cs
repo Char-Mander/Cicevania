@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     public virtual void Movement()
     {
         transform.position += Vector3.right * moveSpeed * Time.deltaTime * horizontal;
+        transform.localScale = new Vector3(horizontal, transform.localScale.y, transform.localScale.z);
     }
 
     public virtual void DetectTarget(Transform target)

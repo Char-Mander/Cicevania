@@ -34,6 +34,10 @@ public class TurtleEnemy : Enemy
         {
             rb.gravityScale = 0;
         }
+        if(rb.velocity.y != 0)
+        {
+            rb.velocity = new Vector3(0,0,0);
+        }
         FlyingMovement();
     }
 
@@ -43,6 +47,7 @@ public class TurtleEnemy : Enemy
         {
             rb.gravityScale = 1;
             anim.SetBool("IsGrounded", true);
+            horizontal = transform.localScale.x;
             transform.localScale = new Vector3(horizontal, transform.localScale.y, transform.localScale.z);
         }
         base.Movement();

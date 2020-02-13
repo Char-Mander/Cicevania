@@ -73,6 +73,7 @@ public class ScoreCanvasController : MonoBehaviour
         total += GameManager._instance.coinAmmount;
         total += GameManager._instance.enemyAmmount * 5;
         total += total / GameManager._instance.GetInitLifes() * GameManager._instance.GetCurrentLifes();
+        total += (int) GameManager._instance.goalScore * 6;
         total += 45 - (int)GameManager._instance.lvlTime.TotalSeconds / 2;
 
         return total;

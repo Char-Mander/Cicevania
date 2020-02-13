@@ -38,6 +38,11 @@ public class Health : MonoBehaviour
             }
             else if (this.CompareTag("Player"))
             {
+                Missile[] missiles = FindObjectsOfType<Missile>();
+                foreach(Missile m in missiles)
+                {
+                    Destroy(m.gameObject);
+                }
                 LoseLife();
             }
         }
