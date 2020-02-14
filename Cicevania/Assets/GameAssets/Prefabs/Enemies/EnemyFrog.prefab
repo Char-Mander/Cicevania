@@ -147,6 +147,7 @@ MonoBehaviour:
     m_Bits: 1280
   vecToTarget: {x: 0, y: 0}
   damage: 20
+  horizontal: -1
   jumpForce: 4
   attackDelay: 3
 --- !u!114 &6252681017859710040
@@ -396,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgHealthBar: {fileID: 1913673444893388189}
-  txtLifesAmmount: {fileID: 0}
   txtCoinAmmount: {fileID: 0}
   panelTutorial: {fileID: 0}
+  lifeImage: {fileID: 0}
+  contentLifes: {fileID: 0}
+  timeText: {fileID: 0}

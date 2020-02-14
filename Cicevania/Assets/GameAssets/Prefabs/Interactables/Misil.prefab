@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6918241382256883359}
   - component: {fileID: 201933519}
   - component: {fileID: 201933520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Misil
   m_TagString: Untagged
   m_Icon: {fileID: 0}

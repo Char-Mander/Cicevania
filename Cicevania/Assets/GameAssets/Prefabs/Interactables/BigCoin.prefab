@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4288275828597156983}
   - component: {fileID: 4288275828597156970}
   - component: {fileID: 939508669}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BigCoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

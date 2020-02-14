@@ -124,12 +124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69be2d3d468dc3345ba7eb0a5bc4f88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posDisp: {fileID: 0}
+  posDisp: {fileID: 1742063777}
   target: {fileID: 0}
   cadency: 0
   dir: 0
   detectDist: 0
-  missile: {fileID: 0}
+  missile: {fileID: 6918241382256883356, guid: fa8f60d52653d3949be3548890600279, type: 3}
 --- !u!61 &1429041821
 BoxCollider2D:
   m_ObjectHideFlags: 0

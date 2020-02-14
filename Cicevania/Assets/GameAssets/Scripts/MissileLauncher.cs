@@ -7,8 +7,6 @@ public class MissileLauncher : MonoBehaviour
     [SerializeField]
     private Transform posDisp;
     [SerializeField]
-    private Transform target;
-    [SerializeField]
     private float cadency;
     [SerializeField]
     private float dir;
@@ -17,8 +15,14 @@ public class MissileLauncher : MonoBehaviour
     [SerializeField]
     GameObject missile;
 
+    private Transform target;
 
     private bool canLaunch = true;
+
+    private void Start()
+    {
+        target = FindObjectOfType<PlayerController>().transform;
+    }
 
     // Update is called once per frame
     void Update()
