@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{E94CBE82-CB03-19B0-70D0-3B13EF517FB9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameAssets/Scripts/GoalMechanism.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GameAssets/Scripts/FrogEnemy.cs">
     <Files>
       <File FileName="Assets/GameAssets/Scripts/CharacterCanvasController.cs" Line="54" Column="1" />
       <File FileName="Assets/GameAssets/Scripts/Health.cs" />
       <File FileName="Assets/GameAssets/Scripts/PlayerController.cs" />
       <File FileName="Assets/GameAssets/Scripts/Coin.cs" />
       <File FileName="Assets/GameAssets/Scripts/Spikes.cs" />
-      <File FileName="Assets/GameAssets/Scripts/Enemy.cs" />
+      <File FileName="Assets/GameAssets/Scripts/Enemy.cs" Line="48" Column="8" />
       <File FileName="Assets/GameAssets/Scripts/CrazyFishEnemy.cs" />
       <File FileName="Assets/GameAssets/Scripts/Jumper.cs" />
       <File FileName="Assets/GameAssets/Scripts/Lever.cs" />
@@ -15,12 +15,11 @@
       <File FileName="Assets/GameAssets/Scripts/Star.cs" />
       <File FileName="Assets/GameAssets/Scripts/PowerUp.cs" />
       <File FileName="Assets/GameAssets/Scripts/HealthPowerUp.cs" />
-      <File FileName="Assets/GameAssets/Scripts/FrogEnemy.cs" />
+      <File FileName="Assets/GameAssets/Scripts/FrogEnemy.cs" Line="39" Column="14" />
       <File FileName="Assets/GameAssets/Scripts/GameManager.cs" />
       <File FileName="Assets/GameAssets/Scripts/SceneController.cs" />
       <File FileName="Assets/GameAssets/Scripts/ScoreCanvasController.cs" />
-      <File FileName="Assets/GameAssets/Scripts/NextLevelDoor.cs" />
-      <File FileName="Assets/GameAssets/Scripts/GoalMechanism.cs" Line="54" Column="1" />
+      <File FileName="Assets/GameAssets/Scripts/GoalMechanism.cs" />
       <File FileName="Assets/GameAssets/Scripts/DataManager.cs" />
     </Files>
     <Pads>
@@ -30,7 +29,7 @@
             <Node name="Assets" expanded="True">
               <Node name="GameAssets" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="GoalMechanism.cs" selected="True" />
+                  <Node name="FrogEnemy.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -41,7 +40,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="792a1b61-9d02-4bf0-b7ba-e38ac024b49a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="13a4d9b1-f4a3-4ca1-ada3-27b93f9cd560" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("collisiona con: " + collision.name);
         if (collision.CompareTag("Enemy") && !canDoSuperAttack)
         {
             collision.GetComponent<Health>().LoseHealth(superAttackDamage);

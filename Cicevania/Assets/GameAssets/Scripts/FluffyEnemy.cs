@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FrogEnemy : Enemy
+public class FluffyEnemy : Enemy
 {
     [SerializeField]
     float jumpForce;
@@ -10,6 +10,7 @@ public class FrogEnemy : Enemy
     float attackDelay;
 
     bool canAttack;
+    bool detected = false;
 
     public override void Start()
     {
@@ -21,6 +22,26 @@ public class FrogEnemy : Enemy
     {
         DetectTarget(target);
         Animations();
+    }
+
+    public override void DetectTarget(Transform target)
+    {
+        vecToTarget = target.position - transform.position;
+        if (vecToTarget.magnitude < detectDist)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
+            if (hit.collider.CompareTag("Player"))
+            {
+                if (hit.collider.gameObject.transform.position.x < this.transform.position.x) transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                else transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                detected = true;
+                Attack();
+            }
+            else
+            {
+                detected = false;
+            }
+        }
     }
 
     public override void Attack()
@@ -37,7 +58,7 @@ public class FrogEnemy : Enemy
 
     void Animations()
     {
-        anim.SetFloat("VelY", rb.velocity.y);
+        anim.SetBool("Detected", detected);
     }
 
     IEnumerator Reload() {
