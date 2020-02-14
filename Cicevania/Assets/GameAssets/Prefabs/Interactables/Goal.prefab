@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575808767}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.69, z: 0}
+  m_LocalPosition: {x: 0, y: 2.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9116719840392450841}
@@ -335,7 +335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destiny: {fileID: 575808768}
-  fallSpeed: 2
+  flag: {fileID: 9116719840116163863}
+  fallSpeed: 0.5
 --- !u!1 &9116719840457831489
 GameObject:
   m_ObjectHideFlags: 0

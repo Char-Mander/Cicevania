@@ -133,6 +133,7 @@ public class Character2DController : MonoBehaviour
 
     public void Jump()
     {
+        GameManager._instance.sound.PlayJumpShot();
         Vector2 auxVel = m_Rigidbody2D.velocity;
         auxVel.y = 0;
         m_Rigidbody2D.velocity = auxVel;

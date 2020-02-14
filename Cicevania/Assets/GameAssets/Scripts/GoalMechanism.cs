@@ -7,6 +7,8 @@ public class GoalMechanism : MonoBehaviour
     [SerializeField]
     private Transform destiny;
     [SerializeField]
+    private GameObject flag;
+    [SerializeField]
     private float fallSpeed;
 
     private GameObject target;
@@ -19,9 +21,11 @@ public class GoalMechanism : MonoBehaviour
         if(triggered && Vector3.Distance(target.transform.position, destiny.position) > 0.8f && !finished)
         {
             target.transform.position += Vector3.down * fallSpeed * Time.deltaTime;
+            flag.transform.position = new Vector3(flag.transform.position.x, target.transform.position.y, flag.transform.position.z);
         }
         else if (triggered && Vector3.Distance(target.transform.position, destiny.position) < 0.8f && !finished)
         {
+            flag.transform.position = new Vector3(flag.transform.position.x, destiny.transform.position.y-1.5f, flag.transform.position.z);
             finished = true;
             EnableOrDisableTarget(true);
         }

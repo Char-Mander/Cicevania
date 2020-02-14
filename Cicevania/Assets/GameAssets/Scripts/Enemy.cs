@@ -65,7 +65,6 @@ public class Enemy : MonoBehaviour
     {
         if ((collision.CompareTag("Ground") || (collision.CompareTag("Player")) && noCollision) || collision.CompareTag("Object"))
         {
-            if(collision.CompareTag("Player")) GameManager._instance.sound.PlayBumpShot();
             noCollision = false;
             horizontal = -horizontal;
             StartCoroutine(WaitForNextCollision());

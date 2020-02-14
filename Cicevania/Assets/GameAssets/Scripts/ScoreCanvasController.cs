@@ -42,6 +42,14 @@ public class ScoreCanvasController : MonoBehaviour
         winPanel.SetActive(hasWin);
         nextLevelBtn.SetActive((GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels()) && hasWin);
         losePanel.SetActive(!hasWin);
+        //SetUpSound
+        if (hasWin)
+        {
+            if (GameManager._instance.GetCurrentLvl() != GameManager._instance.GetMaxLevels())
+                GameManager._instance.sound.PlayLevelCompleted();
+            else GameManager._instance.sound.PlayWorldClear();
+        }
+        else  GameManager._instance.sound.PlayGameOver();
     }
 
     public void btnLoadMenu()

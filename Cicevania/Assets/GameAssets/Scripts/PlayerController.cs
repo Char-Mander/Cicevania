@@ -198,6 +198,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!godMode)
         {
+            GameManager._instance.sound.PlayBumpShot();
             GetComponent<Health>().LoseHealth(damage);
             GodModeOn(hitGodModeDuration);
         }

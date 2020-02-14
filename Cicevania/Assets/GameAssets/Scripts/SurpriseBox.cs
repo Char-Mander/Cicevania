@@ -26,10 +26,10 @@ public class SurpriseBox : MonoBehaviour
         {
             enabled = false;
             anim.enabled = false;
+            GameManager._instance.sound.PlayPowerUpAppearShot();
             GetComponent<SpriteRenderer>().sprite = usedImage;
             GameObject go = Instantiate(posibleObjects[Random.Range(0, posibleObjects.Count)], objectPos);
             if(go.GetComponent<Rigidbody2D>() != null) go.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 2 * Time.deltaTime, ForceMode2D.Impulse);
-            GameManager._instance.sound.PlayPowerUpAppearShot();
         }
     }
 }

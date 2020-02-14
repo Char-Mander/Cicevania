@@ -128,6 +128,12 @@ public class SoundManager : MonoBehaviour
     }
 
 
+    //Menu sounds
+    public void PlayButtonSound()
+    {
+        aSource.PlayOneShot(gameSounds[17].GetAudioClip());
+    }
+
     
     public void PlayMusic()
     {
@@ -136,7 +142,10 @@ public class SoundManager : MonoBehaviour
 
     public void PauseMusic()
     {
-        if (aSource.isPlaying) aSource.Pause();
+        if (aSource.isPlaying)
+        {
+            aSource.Pause();
+        }
     }
 
     public void StopMusic()

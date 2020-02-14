@@ -30,6 +30,7 @@ public class CheckPointController : MonoBehaviour
                 player.GetComponent<Health>().GainHealth(100000000);
                 player.transform.position = checkPoint.GetSpawnPoint().position;
                 player.GetComponent<PlayerController>().GodModeOn(2);
+                GameManager._instance.sound.PlayMainTheme();
             }
         }
     }

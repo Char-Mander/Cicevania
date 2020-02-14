@@ -23,6 +23,7 @@ public class Teleport : MonoBehaviour
                 infoImage.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.E) || (Input.GetKeyDown(KeyCode.DownArrow) && this.gameObject.CompareTag("Tube")))
                 {
+                    GameManager._instance.sound.PlayPipeShot();
                     col.gameObject.transform.position = new Vector3(destiny.position.x, destiny.position.y, destiny.position.z);
                     infoImage.SetActive(false);
                     canUse = false;

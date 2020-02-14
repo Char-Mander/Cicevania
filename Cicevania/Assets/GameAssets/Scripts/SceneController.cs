@@ -7,26 +7,32 @@ public class SceneController : MonoBehaviour
 {
     public void LoadSceneLvl(int lvl)
     {
-        StartCoroutine(WaitForLoad());
-        SceneManager.LoadScene("Lvl" + lvl);
-        GameManager._instance.SetCurrentLvl(lvl);
-        GameManager._instance.InitData();
+        StartCoroutine(WaitForLoadGame(lvl));
     }
 
     public void LoadMenu()
     {
-        StartCoroutine(WaitForLoad());
         SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitForLoad());
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(WaitForLoadGameOver());
     }
 
-    IEnumerator WaitForLoad()
+    IEnumerator WaitForLoadGame(int lvl)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        GameManager._instance.sound.StopMusic();
+        GameManager._instance.sound.PlayMainTheme();
+        SceneManager.LoadScene("Lvl" + lvl);
+        GameManager._instance.SetCurrentLvl(lvl);
+        GameManager._instance.InitData();
+    }
+
+    IEnumerator WaitForLoadGameOver()
+    {
+        yield return new WaitForSeconds(0.75f);
+        SceneManager.LoadScene("GameOver");
     }
 }

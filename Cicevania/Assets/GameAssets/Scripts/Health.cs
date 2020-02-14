@@ -30,6 +30,7 @@ public class Health : MonoBehaviour
         {
             if (this.CompareTag("Enemy")){
                 this.gameObject.GetComponent<Animator>().SetTrigger("Die");
+                GameManager._instance.sound.PlayEnemyKilledShot();
                 GetComponent<SpriteRenderer>().flipY = true;
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
@@ -53,20 +54,46 @@ public class Health : MonoBehaviour
     void LoseLife()
     {
         GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
+        this.gameObject.GetComponent<Animator>().SetTrigger("Die");
         if (GameManager._instance.GetCurrentLifes() > 0)
         {
-            FindObjectOfType<CheckPointController>().Respawn();
-            canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
-            canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
-            canvas.UpdateHealthBar(currentHealth, maxHealth);
+            StartCoroutine(WaitForRespawn());
         }
         else
         {
-            GameManager._instance.sceneC.LoadGameOver();
+            PlayerDeath();
+            StartCoroutine(WaitForLoadGameOver());
         }
     }
 
     public int GetMaxHealth() { return maxHealth; }
 
     public int GetCurrentHealth() { return currentHealth; }
+
+
+    private void PlayerDeath()
+    {
+        GameManager._instance.sound.StopMusic();
+        GameManager._instance.sound.PlayPeachDiesShot();
+        this.gameObject.GetComponent<PlayerController>().GodModeOn(2.5f);
+        this.gameObject.GetComponent<PlayerController>().enabled = false;
+    }
+
+    IEnumerator WaitForRespawn()
+    {
+        PlayerDeath();
+        yield return new WaitForSeconds(2.5f);
+        this.gameObject.GetComponent<PlayerController>().enabled = true;
+        FindObjectOfType<CheckPointController>().Respawn();
+        canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
+        canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
+        canvas.UpdateHealthBar(currentHealth, maxHealth);
+    }
+
+    IEnumerator WaitForLoadGameOver()
+    {
+        yield return new WaitForSeconds(1.7f);
+        this.gameObject.GetComponent<PlayerController>().enabled = true;
+        GameManager._instance.sceneC.LoadGameOver();
+    }
 }

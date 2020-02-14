@@ -6942,6 +6942,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 941589016, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: maxLevels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212540386, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: gameSounds.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 212540386, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: gameSounds.Array.data[17].audioC
+      value: 
+      objectReference: {fileID: 8300000, guid: c4c7599c8a2b4ee4285202cc1243c2f5, type: 3}
+    - target: {fileID: 1090495427, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6984,30 +7016,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8919719981180465619, guid: 426e91375c86b4eed9d8507d267dbdbb,
         type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1090495427, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 941589016, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: maxLevels
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
@@ -19254,14 +19262,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 129579618, guid: bf4c28a0ee8d94786bdb9b40091b5bbf, type: 3}
-      propertyPath: fallSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 575808768, guid: bf4c28a0ee8d94786bdb9b40091b5bbf, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4c28a0ee8d94786bdb9b40091b5bbf, type: 3}

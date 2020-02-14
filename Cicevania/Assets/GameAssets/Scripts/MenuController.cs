@@ -19,15 +19,10 @@ public class MenuController : MonoBehaviour
     {
        if(panelLevels!=null) panelLevels.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void BtnShowLevels()
     {
+        GameManager._instance.sound.PlayButtonSound();
         panelLevels.SetActive(true);
         btnStartGame.enabled = false;
         FillWithButtons();
@@ -35,11 +30,13 @@ public class MenuController : MonoBehaviour
 
     public void BtnOptions()
     {
+        GameManager._instance.sound.PlayButtonSound();
         GameManager._instance.optionsC.SwitchPause();
     }
 
     public void BtnExitGame()
     {
+        GameManager._instance.sound.PlayButtonSound();
         Application.Quit();
     }
 
