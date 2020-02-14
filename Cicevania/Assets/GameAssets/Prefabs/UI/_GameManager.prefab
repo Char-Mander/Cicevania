@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 941589016}
   - component: {fileID: 941589017}
   - component: {fileID: 6352376641791897884}
+  - component: {fileID: 212540386}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -955,7 +956,9 @@ MonoBehaviour:
   data: {fileID: 0}
   optionsC: {fileID: 0}
   sceneC: {fileID: 0}
-  maxLevels: 3
+  sound: {fileID: 0}
+  maxLevels: 2
+  initLifes: 3
 --- !u!114 &941589017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,3 +983,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb0f26ee55bd455f97f8205a2d8ea21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &212540386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352376640850440973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9793f773ba3aae4f81653e35da01796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSounds:
+  - audioC: {fileID: 8300000, guid: 602a68068f4b47f4f9b9e1145631ad12, type: 3}
+    isLoopable: 1
+  - audioC: {fileID: 8300000, guid: edf9bada8e16a634985b82eeda21783b, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: b6b9f3fc2d8e95d46a3dca950bcb93ff, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 58419259f5f26fe428d8f7372c2ce020, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 45ad6959d41c90f43a43532c1594ca1e, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 4b44e27b18f5f7944836ec54de94b4b5, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: d127873ef4df5ac4fa6bf8efadfbb672, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: deb34ff1999ef194e8fc1085a1c126d4, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 2aa6881e9a00efa429592ca4edcad0b0, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 86ef2c3976b2c884dac501546162c48b, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: f66e1de4e5f93b34286041f2c574dc26, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 20f955a6875e13d4997d7a23b3839a27, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: abe57a4e36af9a048b40c7ffce5ad0cb, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 7fe0aca3c87ee2f41b5fc4910769dd02, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: 44bbf5d9d7095604f85b38bb7da3a6e9, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: a568d5c26e7703143ac91ac72b068667, type: 3}
+    isLoopable: 0
+  - audioC: {fileID: 8300000, guid: d9ace9dcd05697249a57eb5185be9978, type: 3}
+    isLoopable: 0

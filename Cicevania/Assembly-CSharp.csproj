@@ -103,6 +103,7 @@
     <Compile Include="Assets\GameAssets\Scripts\ScoreCanvasController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ScrollParallax.cs" />
     <Compile Include="Assets\GameAssets\Scripts\ShooterEnemy.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Spikes.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Star.cs" />
     <Compile Include="Assets\GameAssets\Scripts\SurpriseBox.cs" />

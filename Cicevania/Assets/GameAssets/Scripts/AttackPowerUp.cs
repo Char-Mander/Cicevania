@@ -43,6 +43,7 @@ public class AttackPowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameManager._instance.sound.PlayPowerUpPickUpShot();
             collision.GetComponent<PlayerController>().IncreaseAttackDamageOn(duration, increaseValue);
             Destroy(this.gameObject);
         }

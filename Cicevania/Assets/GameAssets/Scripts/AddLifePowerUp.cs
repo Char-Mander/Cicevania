@@ -14,6 +14,7 @@ public class AddLifePowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameManager._instance.sound.Play1UPShot();
             GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() + 1);
             GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<CharacterCanvasController>().UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
             Destroy(this.gameObject);

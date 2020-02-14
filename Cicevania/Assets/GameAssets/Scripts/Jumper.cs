@@ -23,6 +23,7 @@ public class Jumper : MonoBehaviour
         {
             if (canJump)
             {
+                GameManager._instance.sound.PlaySpringActivationShot();
                 if (GetComponent<Animator>()!= null) GetComponent<Animator>().SetTrigger("Jump");
                 rj.maxForce = jumpForce;
                 canJump = false;

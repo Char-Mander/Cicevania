@@ -32,6 +32,7 @@ public class GoalMechanism : MonoBehaviour
         if(collision.CompareTag("Player") & !triggered)
         {
             triggered = true;
+            GameManager._instance.sound.PlayGoalFlagDownShot();
             target = collision.gameObject;
             target.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
             EnableOrDisableTarget(false);

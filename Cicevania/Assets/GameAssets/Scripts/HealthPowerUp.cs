@@ -41,6 +41,7 @@ public class HealthPowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameManager._instance.sound.PlayPowerUpPickUpShot();
             collision.GetComponent<Health>().GainHealth(recoverHP);
             Destroy(this.gameObject);
         }

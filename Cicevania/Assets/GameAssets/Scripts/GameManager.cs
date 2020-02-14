@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public OptionsController optionsC;
     [HideInInspector]
     public SceneController sceneC;
+    [HideInInspector]
+    public SoundManager sound;
 
     [SerializeField]
     private int maxLevels = 2;
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
         data = GetComponent<DataManager>();
         optionsC = GetComponentInChildren<OptionsController>();
         sceneC = GetComponent<SceneController>();
+        sound = GetComponent<SoundManager>();
         //Init
         data.LoadData();
         InitData();

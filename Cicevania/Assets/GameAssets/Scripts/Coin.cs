@@ -25,6 +25,7 @@ public class Coin : MonoBehaviour
 
     void PickUp()
     {
+        GameManager._instance.sound.PlayCoinPickUpShot();
         GameManager._instance.coinAmmount += coinValue;
         playerCanvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
         Destroy(this.gameObject);

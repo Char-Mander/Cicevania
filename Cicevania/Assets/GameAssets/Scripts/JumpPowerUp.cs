@@ -17,6 +17,7 @@ public class JumpPowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GameManager._instance.sound.PlayPowerUpPickUpShot();
             collision.gameObject.GetComponent<PlayerController>().IncreaseJumpForceOn(time, value);
             Destroy(this.gameObject);
         }
