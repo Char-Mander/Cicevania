@@ -30,7 +30,6 @@ public class ScoreCanvasController : MonoBehaviour
 
     private void Start()
     {
-        print("CurrentLifes: " + GameManager._instance.GetCurrentLifes());
         LoadWinLoseSetUp(GameManager._instance.GetCurrentLifes() > 0);
         ScoreDataSetUp();
     }
@@ -41,7 +40,6 @@ public class ScoreCanvasController : MonoBehaviour
         winTitle.SetActive(hasWin);
         loseTitle.SetActive(!hasWin);
         winPanel.SetActive(hasWin);
-        print("currentlvl: " + GameManager._instance.GetCurrentLvl());
         nextLevelBtn.SetActive((GameManager._instance.GetCurrentLvl() <= GameManager._instance.GetMaxLevels()) && hasWin);
         losePanel.SetActive(!hasWin);
         //SetUpSound
