@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
     
     void LoseLife()
     {
+        print("Entra al loselife");
         GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
         this.gameObject.GetComponent<Animator>().SetTrigger("Die");
         if (GameManager._instance.GetCurrentLifes() > 0)
@@ -73,6 +74,9 @@ public class Health : MonoBehaviour
 
     private void PlayerDeath()
     {
+        MissileLauncher[] missiles = FindObjectsOfType<MissileLauncher>();
+        foreach (MissileLauncher m in missiles)
+            m.SetLocked(true);
         GameManager._instance.sound.StopMusic();
         GameManager._instance.sound.PlayPeachDiesShot();
         this.gameObject.GetComponent<PlayerController>().GodModeOn(2.5f);
@@ -85,6 +89,10 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         this.gameObject.GetComponent<PlayerController>().enabled = true;
         FindObjectOfType<CheckPointController>().Respawn();
+
+        MissileLauncher[] missiles = FindObjectsOfType<MissileLauncher>();
+        foreach (MissileLauncher m in missiles)
+            m.SetLocked(false);
         canvas.UpdateLifesAmmount(GameManager._instance.GetCurrentLifes());
         canvas.UpdateCoinAmmount(GameManager._instance.coinAmmount);
         canvas.UpdateHealthBar(currentHealth, maxHealth);

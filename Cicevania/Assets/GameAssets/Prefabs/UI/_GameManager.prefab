@@ -1033,6 +1033,8 @@ MonoBehaviour:
     isLoopable: 0
   - audioC: {fileID: 8300000, guid: e938ef1993687bc47b1b9ae905f92aa2, type: 3}
     isLoopable: 0
+  - audioC: {fileID: 8300000, guid: d8b32e3c9789e5d47953c07121af7b98, type: 3}
+    isLoopable: 0
 --- !u!82 &1610984432
 AudioSource:
   m_ObjectHideFlags: 0

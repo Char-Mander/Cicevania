@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
         if (vecToTarget.magnitude < detectDist)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
-            if (hit.collider.CompareTag("Player"))
+            if(hit.collider.CompareTag("Player"))
             {
                 Attack();
             }

@@ -27,7 +27,7 @@ public class DataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    [MenuItem("Utilidades/DeletePlayerPrefs")]
+    //[MenuItem("Utilidades/DeletePlayerPrefs")]
     public static void DeletePrefs()
     {
         PlayerPrefs.DeleteAll();

@@ -127,6 +127,10 @@ public class SoundManager : MonoBehaviour
         aSource.PlayOneShot(gameSounds[16].GetAudioClip());
     }
 
+    public void PlaySuperAttackShot()
+    {
+        aSource.PlayOneShot(gameSounds[18].GetAudioClip());
+    }
 
     //Menu sounds
     public void PlayButtonSound()

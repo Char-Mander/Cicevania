@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     public void SetCurrentLifes(int currentLifes)
     {
+        print("Entra al setCurrentLifes y le entra " + currentLifes);
         this.currentLifes = currentLifes;
         if (this.currentLifes > initLifes) this.currentLifes = initLifes;
     }

@@ -17,17 +17,18 @@ public class MissileLauncher : MonoBehaviour
 
     private Transform target;
 
-    private bool canLaunch = true;
-
+    private bool canLaunch;
+    private bool locked = false;
     private void Start()
     {
+        canLaunch = true;
         target = FindObjectOfType<PlayerController>().transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canLaunch && Vector2.Distance(this.transform.position, target.transform.position) <= detectDist)
+        if (!locked && canLaunch && Vector2.Distance(this.transform.position, target.transform.position) <= detectDist)
         {
             canLaunch = false;
             GameObject go = Instantiate(missile, posDisp);
@@ -46,5 +47,10 @@ public class MissileLauncher : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(this.transform.position, detectDist);
+    }
+
+    public void SetLocked(bool value)
+    {
+        locked = value;
     }
 }

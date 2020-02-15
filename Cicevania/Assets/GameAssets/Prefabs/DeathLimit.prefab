@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5698174574157403049}
   - component: {fileID: 5698174574157402710}
   - component: {fileID: 5698174574157402711}
-  - component: {fileID: 5698174574157402708}
+  - component: {fileID: 5698174575126075224}
   m_Layer: 0
   m_Name: DeathLimit
   m_TagString: Untagged
@@ -80,7 +80,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 150.49963, y: 6.2062683}
   m_EdgeRadius: 0
---- !u!114 &5698174574157402708
+--- !u!114 &5698174575126075224
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5698174574157403048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e2978a1d0ed4f3da5b6527c1365a83, type: 3}
+  m_Script: {fileID: 11500000, guid: 2487ccbdacee49f46b8dee32dfe3cce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10000
+  damage: 1000

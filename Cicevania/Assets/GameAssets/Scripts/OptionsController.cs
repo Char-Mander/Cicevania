@@ -25,6 +25,7 @@ public class OptionsController : MonoBehaviour
 
     public void BackMenuBtn()
     {
+        GameManager._instance.sound.StopMusic();
         GameManager._instance.sound.PlayButtonSound();
         GameManager._instance.sceneC.LoadMenu();
     }

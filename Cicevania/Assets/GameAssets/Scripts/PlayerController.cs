@@ -110,7 +110,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("collisiona con: " + collision.name);
         if (collision.CompareTag("Enemy") && !canDoSuperAttack)
         {
             collision.GetComponent<Health>().LoseHealth(superAttackDamage);
@@ -159,6 +158,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator ActiveAreaSuperAttack()
     {
         yield return new WaitForSeconds(0.1f);
+        GameManager._instance.sound.PlaySuperAttackShot();
         areaSuperAttack.SetActive(true);
     }
 
