@@ -18,6 +18,7 @@ public class CheckPointController : MonoBehaviour
             checkPoint.SetAsCurrentCP(false);
         }
         cp.SetAsCurrentCP(true);
+        GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl(), GameManager._instance.GetCurrentLifes());
     }
 
     public void Respawn()
@@ -30,6 +31,7 @@ public class CheckPointController : MonoBehaviour
                 player.GetComponent<Health>().GainHealth(100000000);
                 player.transform.position = checkPoint.GetSpawnPoint().position;
                 player.GetComponent<PlayerController>().GodModeOn(2);
+                if(FindObjectOfType<BockMechanism>() != null) FindObjectOfType<BockMechanism>().EnableOrDisableElements(false);
                 GameManager._instance.sound.PlayMainTheme();
             }
         }

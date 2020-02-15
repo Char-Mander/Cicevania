@@ -73,6 +73,7 @@
     <Compile Include="Assets\2d-extras-2018.2\Assets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AddLifePowerUp.cs" />
     <Compile Include="Assets\GameAssets\Scripts\AttackPowerUp.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\BockMechanism.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Character2DController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\CharacterCanvasController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\CheckPoint.cs" />
