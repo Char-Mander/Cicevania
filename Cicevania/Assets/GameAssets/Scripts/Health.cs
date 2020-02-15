@@ -53,7 +53,6 @@ public class Health : MonoBehaviour
     
     void LoseLife()
     {
-        print("Entra al loselife");
         GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() - 1);
         this.gameObject.GetComponent<Animator>().SetTrigger("Die");
         if (GameManager._instance.GetCurrentLifes() > 0)

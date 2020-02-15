@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8433172964600866497}
   - component: {fileID: 8433172964600866511}
   - component: {fileID: 8433172964600866510}
+  - component: {fileID: 626029085}
   m_Layer: 0
   m_Name: Castle
   m_TagString: Untagged
@@ -94,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19220352, y: 1.0127048}
+  m_Offset: {x: 0.20389938, y: 1.0127048}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -105,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6624222, y: 2.0254097}
+  m_Size: {x: 0.49999237, y: 2.0254097}
   m_EdgeRadius: 0
 --- !u!61 &8433172964600866510
 BoxCollider2D:
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.4786415, y: 2.855524}
+  m_Offset: {x: 2.62331, y: 2.855524}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -131,5 +132,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9663773, y: 6.1578445}
+  m_Size: {x: 3.67704, y: 6.1578445}
   m_EdgeRadius: 0
+--- !u!114 &626029085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433172964600866498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d83cc03eb70314fb8d5b69dae3e314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -8,7 +8,9 @@ public class NextLevelDoor : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-             GameManager._instance.sceneC.LoadGameOver();
+            GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
+            GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl());
+            GameManager._instance.sceneC.LoadGameOver();
         }
     }
 }

@@ -30,7 +30,8 @@ public class ScoreCanvasController : MonoBehaviour
 
     private void Start()
     {
-        LoadWinLoseSetUp(GameManager._instance.GetCurrentLifes() != 0);
+        print("CurrentLifes: " + GameManager._instance.GetCurrentLifes());
+        LoadWinLoseSetUp(GameManager._instance.GetCurrentLifes() > 0);
         ScoreDataSetUp();
     }
 
@@ -40,12 +41,13 @@ public class ScoreCanvasController : MonoBehaviour
         winTitle.SetActive(hasWin);
         loseTitle.SetActive(!hasWin);
         winPanel.SetActive(hasWin);
-        nextLevelBtn.SetActive((GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels()) && hasWin);
+        print("currentlvl: " + GameManager._instance.GetCurrentLvl());
+        nextLevelBtn.SetActive((GameManager._instance.GetCurrentLvl() <= GameManager._instance.GetMaxLevels()) && hasWin);
         losePanel.SetActive(!hasWin);
         //SetUpSound
         if (hasWin)
         {
-            if (GameManager._instance.GetCurrentLvl() != GameManager._instance.GetMaxLevels())
+            if (GameManager._instance.GetCurrentLvl() <= GameManager._instance.GetMaxLevels())
                 GameManager._instance.sound.PlayLevelCompleted();
             else GameManager._instance.sound.PlayWorldClear();
         }
@@ -54,8 +56,8 @@ public class ScoreCanvasController : MonoBehaviour
 
     public void btnLoadMenu()
     {
-        if (GameManager._instance.GetCurrentLifes() != 0 && GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels())
-        GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
+        //if (GameManager._instance.GetCurrentLifes() != 0 && GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels())
+        //GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
         GameManager._instance.sceneC.LoadMenu();
     }
 

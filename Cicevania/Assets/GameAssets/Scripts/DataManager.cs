@@ -13,21 +13,16 @@ public class DataManager : MonoBehaviour
         //Carga el nivel actual
         if(PlayerPrefs.HasKey(keyCurrentLvl))
         GameManager._instance.SetCurrentLvl(PlayerPrefs.GetInt(keyCurrentLvl));
-        //Carga las vidas actuales
-        if (PlayerPrefs.HasKey(keyCurrentLifes))
-        GameManager._instance.SetCurrentLifes(PlayerPrefs.GetInt(keyCurrentLifes));
     }
-
-    public void SaveData(int currentLvl, int currentLifes)
+    
+    public void SaveData(int currentLvl)
     {
         //Guarda el nivel actual
         PlayerPrefs.SetInt(keyCurrentLvl, currentLvl);
-        //Guarda las vidas actuales
-        PlayerPrefs.SetInt(keyCurrentLifes, currentLifes);
         PlayerPrefs.Save();
     }
 
-    //[MenuItem("Utilidades/DeletePlayerPrefs")]
+    [MenuItem("Utilidades/Borrar partida")]
     public static void DeletePrefs()
     {
         PlayerPrefs.DeleteAll();

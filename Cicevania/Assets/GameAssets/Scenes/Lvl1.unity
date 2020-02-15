@@ -8481,24 +8481,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613943114}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &626029084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8433172964600866498, guid: 8058c795a325e664297aed9118b3b840,
-    type: 3}
-  m_PrefabInstance: {fileID: 8433172964113462839}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &626029085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626029084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d83cc03eb70314fb8d5b69dae3e314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &628847890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18433,10 +18415,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5155851466333355598, guid: aa6db69f053e2d6478e7a91e8aa0625c,
+    - target: {fileID: 5155851466333355599, guid: aa6db69f053e2d6478e7a91e8aa0625c,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
+      propertyPath: m_LocalPosition.y
+      value: -6.19
       objectReference: {fileID: 0}
     - target: {fileID: 5155851464930150525, guid: aa6db69f053e2d6478e7a91e8aa0625c,
         type: 3}
@@ -18498,19 +18480,19 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -5.19
       objectReference: {fileID: 0}
-    - target: {fileID: 1187261194, guid: aa6db69f053e2d6478e7a91e8aa0625c, type: 3}
-      propertyPath: waitTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155851466333355599, guid: aa6db69f053e2d6478e7a91e8aa0625c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.19
-      objectReference: {fileID: 0}
     - target: {fileID: 5155851466333355633, guid: aa6db69f053e2d6478e7a91e8aa0625c,
         type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155851466333355598, guid: aa6db69f053e2d6478e7a91e8aa0625c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187261194, guid: aa6db69f053e2d6478e7a91e8aa0625c, type: 3}
+      propertyPath: waitTime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6db69f053e2d6478e7a91e8aa0625c, type: 3}
@@ -18798,16 +18780,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8433172964600866511, guid: 8058c795a325e664297aed9118b3b840,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.20389938
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433172964600866511, guid: 8058c795a325e664297aed9118b3b840,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.49999237
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8058c795a325e664297aed9118b3b840, type: 3}
 --- !u!4 &8433172964113462840 stripped
@@ -18827,11 +18799,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
@@ -18936,6 +18903,11 @@ PrefabInstance:
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

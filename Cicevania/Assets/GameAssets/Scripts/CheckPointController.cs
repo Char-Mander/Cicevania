@@ -18,7 +18,6 @@ public class CheckPointController : MonoBehaviour
             checkPoint.SetAsCurrentCP(false);
         }
         cp.SetAsCurrentCP(true);
-        GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl(), GameManager._instance.GetCurrentLifes());
     }
 
     public void Respawn()
