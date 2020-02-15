@@ -674,7 +674,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PeachSuperAtack
-  m_Speed: 1
+  m_Speed: 0.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101484064170467386}
@@ -690,7 +690,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 10afc139e67c44589b5c6d0ae75381cd, type: 2}
+  m_Motion: {fileID: 7400000, guid: c99da42d242cc774888079e405b81707, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

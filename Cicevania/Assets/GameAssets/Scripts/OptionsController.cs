@@ -19,7 +19,11 @@ public class OptionsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) SwitchPause();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("Pulsa escape");
+            SwitchPause();
+        }
     }
 
 

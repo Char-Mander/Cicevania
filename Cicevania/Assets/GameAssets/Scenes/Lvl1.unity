@@ -6912,83 +6912,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 941589016, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: maxLevels
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212540386, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: gameSounds.Array.size
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 212540386, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: gameSounds.Array.data[17].audioC
-      value: 
-      objectReference: {fileID: 8300000, guid: c4c7599c8a2b4ee4285202cc1243c2f5, type: 3}
-    - target: {fileID: 1090495427, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 662605066, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8145366700090699727, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919719981180465619, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919719981180465619, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919719981180465619, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8919719981180465619, guid: 426e91375c86b4eed9d8507d267dbdbb,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426e91375c86b4eed9d8507d267dbdbb, type: 3}
 --- !u!1001 &232659780
@@ -18196,11 +18119,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3047161893858309080, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1192772045}
     - target: {fileID: 3047161893858308900, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
         type: 3}
       propertyPath: m_SleepingMode
@@ -18211,6 +18129,11 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3047161893858309080, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1192772045}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95036f0f6b72a4366b67c2fa93a53a1b, type: 3}
 --- !u!1001 &4665864526053217941

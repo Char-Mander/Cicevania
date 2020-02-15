@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 2531426264367222747}
-  maxHealth: 10
+  maxHealth: 20
 --- !u!61 &1751195560
 BoxCollider2D:
   m_ObjectHideFlags: 0

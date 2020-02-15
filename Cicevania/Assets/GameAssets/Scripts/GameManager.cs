@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour
 
     public void SetCurrentLvl(int lvl)
     {
-        print("Entra al currentLvl");
         currentLvl = lvl;
     }
 

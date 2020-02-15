@@ -157,14 +157,14 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ActiveAreaSuperAttack()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
         GameManager._instance.sound.PlaySuperAttackShot();
         areaSuperAttack.SetActive(true);
     }
 
     IEnumerator WaitForDoSuperAttackAgain()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.38f);
         canDoSuperAttack = true;
         areaSuperAttack.SetActive(false);
     }
