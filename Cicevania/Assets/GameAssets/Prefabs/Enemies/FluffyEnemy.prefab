@@ -361,10 +361,11 @@ MonoBehaviour:
   moveSpeed: 0
   lm:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
   vecToTarget: {x: 0, y: 0}
   damage: 20
   horizontal: -1
+  hitGodModeDuration: 0.6
   jumpForce: 4
   attackDelay: 2
 --- !u!114 &351160019335607363

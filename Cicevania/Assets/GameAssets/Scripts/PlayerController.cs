@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
             if (JumpAttack(collision.transform.position) || isCrouching)
             {
                 cController.Jump();
-                collision.gameObject.GetComponent<Health>().LoseHealth(jumpDamage);
+                collision.gameObject.GetComponent<Enemy>().GetDamage(jumpDamage);
             }
             else
             {
@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !canDoSuperAttack)
         {
-            collision.GetComponent<Health>().LoseHealth(superAttackDamage);
+
+            collision.gameObject.GetComponent<Enemy>().GetDamage(superAttackDamage);
         }
         
     }

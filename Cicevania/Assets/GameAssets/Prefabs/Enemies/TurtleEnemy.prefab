@@ -594,10 +594,11 @@ MonoBehaviour:
   moveSpeed: 2
   lm:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 1303
   vecToTarget: {x: 0, y: 0}
   damage: 20
   horizontal: -1
+  hitGodModeDuration: 0.6
   attackDelay: 0
   wayPoints:
   - {fileID: 1864520783259690959}

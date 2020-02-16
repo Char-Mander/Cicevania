@@ -9,7 +9,7 @@ public class Missile : MonoBehaviour
     [SerializeField]
     float moveSpeed;
 
-    private float horizontal;
+    private float horizontal=1;
 
     private void Update()
     {
@@ -20,7 +20,7 @@ public class Missile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Health>().LoseHealth(damage);
+            collision.GetComponent<PlayerController>().GetDamage(damage);
             Destroy(this.gameObject);
         }
     }

@@ -12357,39 +12357,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: posDisp
-      value: 
-      objectReference: {fileID: 1191838535}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1621435088}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: cadency
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: dir
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: detectDist
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429041820, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
-      propertyPath: missile
-      value: 
-      objectReference: {fileID: 6918241382256883356, guid: fa8f60d52653d3949be3548890600279,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b35957665f92a948bb87ab7244f1c24, type: 3}
---- !u!4 &1191838535 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1742063777, guid: 9b35957665f92a948bb87ab7244f1c24,
-    type: 3}
-  m_PrefabInstance: {fileID: 1191838534}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1192772045 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8785723953630301277, guid: fd0da5c48c9114141a97e16da96cf777,
@@ -18119,6 +18088,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3047161893858309080, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1192772045}
     - target: {fileID: 3047161893858308900, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
         type: 3}
       propertyPath: m_SleepingMode
@@ -18129,11 +18103,6 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3047161893858309080, guid: 95036f0f6b72a4366b67c2fa93a53a1b,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1192772045}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95036f0f6b72a4366b67c2fa93a53a1b, type: 3}
 --- !u!1001 &4665864526053217941
@@ -18723,6 +18692,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18826,11 +18800,6 @@ PrefabInstance:
     - target: {fileID: 8785723953630301276, guid: fd0da5c48c9114141a97e16da96cf777,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6862980525741892507, guid: fd0da5c48c9114141a97e16da96cf777,
-        type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

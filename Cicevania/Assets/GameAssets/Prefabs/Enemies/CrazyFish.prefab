@@ -210,6 +210,7 @@ MonoBehaviour:
   vecToTarget: {x: 0, y: 0}
   damage: 5
   horizontal: -1
+  hitGodModeDuration: 0.6
   groundDetector: {fileID: 1123903914332709539}
   maxSpeed: 3
   detectRadius: 0.3

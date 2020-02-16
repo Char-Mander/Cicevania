@@ -125,10 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posDisp: {fileID: 1742063777}
-  target: {fileID: 0}
-  cadency: 0
-  dir: 0
-  detectDist: 0
+  cadency: 1.5
+  dir: -1
+  detectDist: 7
   missile: {fileID: 6918241382256883356, guid: fa8f60d52653d3949be3548890600279, type: 3}
 --- !u!61 &1429041821
 BoxCollider2D:

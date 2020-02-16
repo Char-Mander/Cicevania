@@ -14,12 +14,15 @@ public class Enemy : MonoBehaviour
     public LayerMask lm;
     [HideInInspector]
     public Vector2 vecToTarget;
-
     [SerializeField]
     private int damage;
     [HideInInspector]
     public float horizontal = -1;
+    [SerializeField]
+    private float hitGodModeDuration;
+
     bool noCollision = true;
+    bool godMode = false;
 
     public virtual void Start()
     {
@@ -35,6 +38,7 @@ public class Enemy : MonoBehaviour
     {
         DetectTarget(target);
         Movement();
+        if (godMode) Blink();
     }
 
     public virtual void Movement()
@@ -79,10 +83,33 @@ public class Enemy : MonoBehaviour
 
     public int GetDamage() { return damage; }
 
-    /*
-    private void OnDrawGizmos()
+    public void GetDamage(int damage)
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(this.transform.position, detectDist);
-    }*/
+        if (!godMode)
+        {
+            GameManager._instance.sound.PlayBumpShot();
+            GetComponent<Health>().LoseHealth(damage);
+            StartCoroutine(ActiveGodMode(hitGodModeDuration));
+        }
+    }
+
+    void Blink()
+    {
+        ChangeEnemyAlpha(Mathf.PingPong(Time.time * 5, 1) + 0.5f);
+    }
+
+    void ChangeEnemyAlpha(float value)
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Color auxColor = sr.color;
+        auxColor.a = value;
+        sr.color = auxColor;
+    }
+
+    IEnumerator ActiveGodMode(float duration)
+    {
+        godMode = true;
+        yield return new WaitForSeconds(duration);
+        godMode = false;
+    }
 }

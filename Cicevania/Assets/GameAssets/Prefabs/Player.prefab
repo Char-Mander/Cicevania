@@ -304,7 +304,7 @@ MonoBehaviour:
   moveSpeed: 30
   crouchMoveSpeed: 70
   jumpDamage: 10
-  superAttackDamage: 10
+  superAttackDamage: 20
   hitGodModeDuration: 1
   areaSuperAttack: {fileID: 1963135965}
 --- !u!114 &3047161893858309080

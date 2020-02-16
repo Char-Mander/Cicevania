@@ -92,6 +92,7 @@
     <Compile Include="Assets\GameAssets\Scripts\JumpPowerUp.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Lever.cs" />
     <Compile Include="Assets\GameAssets\Scripts\LvlButton.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\MarioBossEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MenuController.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Missile.cs" />
     <Compile Include="Assets\GameAssets\Scripts\MissileLauncher.cs" />

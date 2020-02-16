@@ -205,6 +205,7 @@ MonoBehaviour:
   vecToTarget: {x: 0, y: 0}
   damage: 30
   horizontal: -1
+  hitGodModeDuration: 0.6
 --- !u!1 &2531426264230526009
 GameObject:
   m_ObjectHideFlags: 0
