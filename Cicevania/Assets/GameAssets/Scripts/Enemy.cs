@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
         if (vecToTarget.magnitude < detectDist)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
-            if(hit.collider.CompareTag("Player"))
+            if(hit.collider != null && hit.collider.CompareTag("Player"))
             {
                 Attack();
             }
@@ -71,6 +71,11 @@ public class Enemy : MonoBehaviour
         {
             noCollision = false;
             horizontal = -horizontal;
+            bool enemy = this.gameObject.GetComponent<CrazyFishEnemy>() != null || this.gameObject.GetComponent<FluffyEnemy>() != null;
+            if(!enemy)
+            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3( horizontal,
+                GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
+                GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
             StartCoroutine(WaitForNextCollision());
         }
     }

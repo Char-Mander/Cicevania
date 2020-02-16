@@ -53,6 +53,9 @@ public class CrazyFishEnemy : Enemy
         {
             if(this.transform.position.x < target.position.x) transform.localScale = new Vector3(1, 1, 1);
             else transform.localScale = new Vector3(-1, 1, 1);
+            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
+                        GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
+                        GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
         }
     }
 
@@ -77,6 +80,9 @@ public class CrazyFishEnemy : Enemy
         Vector3 aux = transform.localScale;
         aux.x *= -1;
         transform.localScale = aux;
+        GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
     }
 
     private void OnDrawGizmos()

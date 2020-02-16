@@ -357,7 +357,7 @@ MonoBehaviour:
   target: {fileID: 0}
   anim: {fileID: 0}
   rb: {fileID: 0}
-  detectDist: 3
+  detectDist: 4
   moveSpeed: 0
   lm:
     serializedVersion: 2

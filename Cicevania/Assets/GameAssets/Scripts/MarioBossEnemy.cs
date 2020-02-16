@@ -33,6 +33,7 @@ public class MarioBossEnemy : Enemy
         DetectTarget(target);
         if (activation)
         {
+            print("Phase: " + phase);
             LookPlayer();
             if(!jumpAttack) Movement();
             ManagePhases();
@@ -40,7 +41,7 @@ public class MarioBossEnemy : Enemy
     }
 
 
-    public override  void DetectTarget(Transform target)
+    public override void DetectTarget(Transform target)
     {
         vecToTarget = target.position - transform.position;
         if (vecToTarget.magnitude < detectDist && !activation)
@@ -53,7 +54,7 @@ public class MarioBossEnemy : Enemy
     private void LookPlayer()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
-        if (hit.collider.CompareTag("Player"))
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
         {
             if (hit.collider.gameObject.transform.position.x < this.transform.position.x) transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             else transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
@@ -64,13 +65,15 @@ public class MarioBossEnemy : Enemy
     {
         if (rb.velocity.magnitude < maxSpeed)
         {
+            print("Debería moverse");
             rb.AddForce(Vector2.right * transform.localScale.x * moveSpeed * Time.deltaTime, ForceMode2D.Force);
         }
     }
 
     private void ManagePhases()
     {
-        switch (GetPhase())
+        phase = GetPhase();
+        switch (phase)
         {
             case 1: if (jumpAttack)
                     {
@@ -82,6 +85,7 @@ public class MarioBossEnemy : Enemy
             case 2:
                 if (canShoot)
                 {
+                    print("Dispara 2");
                     canShoot = false;
                     CreateFireProjectil();
                     StartCoroutine(FireCadencyTime(fireCadency));
@@ -96,11 +100,12 @@ public class MarioBossEnemy : Enemy
             case 3:
                 if (canShoot)
                 {
+                    print("Dispara 3");
                     canShoot = false;
                     CreateFireProjectil();
                     StartCoroutine(FireCadencyTime(fireCadency * 2 / 3));
                 }
-                else if (jumpAttack)
+               else if (jumpAttack)
                 {
                     jumpAttack = false;
                     Jump();
