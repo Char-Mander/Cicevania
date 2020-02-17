@@ -21,7 +21,6 @@ public class FluffyEnemy : Enemy
     public override void Update()
     {
         DetectTarget(target);
-        Animations();
     }
 
     public override void DetectTarget(Transform target)
@@ -32,17 +31,19 @@ public class FluffyEnemy : Enemy
             RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
             if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
-                if (hit.collider.gameObject.transform.position.x < this.transform.position.x) transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-                else transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-                
+                if (hit.collider.gameObject.transform.position.x < this.transform.position.x) horizontal = -1; //transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+                else horizontal = 1; // transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector3(horizontal, transform.localScale.y, transform.localScale.z);
+                Animations();
                 detected = true;
                 Attack();
             }
             else
             {
+                Animations();
                 detected = false;
             }
-            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
+            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(horizontal,
                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
         }
@@ -69,6 +70,12 @@ public class FluffyEnemy : Enemy
         yield return new WaitForSeconds(attackDelay);
         canAttack = true;
     }
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, detectDist);
+    }
+
 }
 

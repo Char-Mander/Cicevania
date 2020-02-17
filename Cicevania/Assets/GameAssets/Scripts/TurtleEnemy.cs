@@ -15,6 +15,13 @@ public class TurtleEnemy : Enemy
     bool flying = true;
     bool horizontalChanged = true;
 
+    [SerializeField]
+    private Transform obstacleDetector;
+    [SerializeField]
+    private float detectRadius;
+    [SerializeField]
+    LayerMask groundDetectorLM;
+
     public override void Start()
     {
         base.Start();
@@ -51,6 +58,7 @@ public class TurtleEnemy : Enemy
             transform.localScale = new Vector3(horizontal, transform.localScale.y, transform.localScale.z);
         }
         base.Movement();
+        DetectObstacles();
     }
 
     void FlyingMovement()
@@ -88,5 +96,29 @@ public class TurtleEnemy : Enemy
             }
         }
     }
-    
+
+
+    private void DetectObstacles()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(obstacleDetector.position, detectRadius, groundDetectorLM);
+        if (hit != null)
+        {
+            ChangeScale();
+        }
+    }
+
+    private void ChangeScale()
+    {
+        horizontal = -horizontal;
+        transform.localScale = new Vector3(horizontal, this.transform.localScale.y, this.transform.localScale.z);
+        GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(obstacleDetector.transform.position, detectRadius);
+    }
+
 }

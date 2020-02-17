@@ -4412,6 +4412,11 @@ PrefabInstance:
       propertyPath: wayPoints.Array.size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5534002336119504183, guid: 5cb7d1763b4c2bf48bfe42d003b38b75,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cb7d1763b4c2bf48bfe42d003b38b75, type: 3}
 --- !u!4 &110456365 stripped

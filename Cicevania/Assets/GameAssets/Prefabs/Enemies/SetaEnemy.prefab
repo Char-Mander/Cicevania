@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2531426262973656852}
   - component: {fileID: 2531426262973656855}
   - component: {fileID: 2531426262973656854}
-  - component: {fileID: 1751195560}
   - component: {fileID: 114540094710854330}
   m_Layer: 9
   m_Name: SetaEnemy
@@ -35,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2531426264285196613}
+  - {fileID: 8272512515575005287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,32 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 2531426264367222747}
   maxHealth: 20
---- !u!61 &1751195560
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2531426262973656848}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.002308756, y: 0.15491718}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7429362, y: 0.18054521}
-  m_EdgeRadius: 0
 --- !u!114 &114540094710854330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +179,12 @@ MonoBehaviour:
   vecToTarget: {x: 0, y: 0}
   damage: 30
   horizontal: -1
-  hitGodModeDuration: 0.6
+  hitGodModeDuration: 0.43
+  obstacleDetector: {fileID: 8272512515575005287}
+  detectRadius: 0.1
+  groundDetectorLM:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2531426264230526009
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,3 +375,33 @@ MonoBehaviour:
   lifeImage: {fileID: 0}
   contentLifes: {fileID: 0}
   timeText: {fileID: 0}
+--- !u!1 &5981112371731888071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8272512515575005287}
+  m_Layer: 9
+  m_Name: obstacleDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8272512515575005287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5981112371731888071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.515, y: 0.305, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2531426262973656850}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

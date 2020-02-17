@@ -9,19 +9,24 @@ public class CrazyFishEnemy : Enemy
     [SerializeField]
     private float maxSpeed;
     [SerializeField]
-    private float detectRadius;
+    private float detectGroundRadius;
+    [SerializeField]
+    private float detectObstaclesRadius;
     [SerializeField]
     PhysicsMaterial2D slide;
-
+    [SerializeField]
+    private Transform obstacleDetector;
     [SerializeField]
     LayerMask groundDetectorLM;
-
+    [SerializeField]
+    LayerMask obstacleDetectorLM;
     private bool isCrazy = false;
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        horizontal = transform.localScale.x;
     }
 
 
@@ -35,14 +40,14 @@ public class CrazyFishEnemy : Enemy
 
     public override void Movement()
     {
-        if(rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * transform.localScale.x * moveSpeed * Time.deltaTime, ForceMode2D.Force);
+        if(rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * horizontal * moveSpeed * Time.deltaTime, ForceMode2D.Force);
     }
 
     void Patrol()
     {
         if (!isCrazy)
         {
-            Collider2D hit = Physics2D.OverlapCircle(groundDetector.position, detectRadius, groundDetectorLM);
+            Collider2D hit = Physics2D.OverlapCircle(groundDetector.position, detectGroundRadius, groundDetectorLM);
             if (hit == null)
             {
                 ChangeScale();
@@ -51,12 +56,11 @@ public class CrazyFishEnemy : Enemy
         }
         else
         {
-            if(this.transform.position.x < target.position.x) transform.localScale = new Vector3(1, 1, 1);
-            else transform.localScale = new Vector3(-1, 1, 1);
-            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
-                        GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
-                        GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
+            if (this.transform.position.x < target.position.x) horizontal = 1;
+            else horizontal = -1;
+            ChangeScale();
         }
+        DetectObstacles();
     }
 
     public override void Attack()
@@ -70,23 +74,27 @@ public class CrazyFishEnemy : Enemy
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void DetectObstacles()
     {
-        if (collision.CompareTag("Ground")) ChangeScale();
+        Collider2D hit = Physics2D.OverlapCircle(obstacleDetector.position, detectGroundRadius, obstacleDetectorLM);
+        if (hit != null)
+        {
+            ChangeScale();
+        }
     }
 
     private void ChangeScale()
     {
-        Vector3 aux = transform.localScale;
-        aux.x *= -1;
-        transform.localScale = aux;
-        GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(this.transform.localScale.x,
+       if(!isCrazy) horizontal = -horizontal;
+        transform.localScale = new Vector3(horizontal, this.transform.localScale.y, this.transform.localScale.z);
+        GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(horizontal,
                     GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
                     GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(groundDetector.transform.position, detectRadius);
+        Gizmos.DrawWireSphere(groundDetector.transform.position, detectGroundRadius);
+        Gizmos.DrawWireSphere(obstacleDetector.transform.position, detectObstaclesRadius);
     }
 }

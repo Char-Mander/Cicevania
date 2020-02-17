@@ -65,27 +65,6 @@ public class Enemy : MonoBehaviour
         print("Enemy attacks");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if ((collision.CompareTag("Ground") || (collision.CompareTag("Player")) && noCollision) || collision.CompareTag("Object"))
-        {
-            noCollision = false;
-            horizontal = -horizontal;
-            bool enemy = this.gameObject.GetComponent<CrazyFishEnemy>() != null || this.gameObject.GetComponent<FluffyEnemy>() != null;
-            if(!enemy)
-            GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3( horizontal,
-                GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
-                GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
-            StartCoroutine(WaitForNextCollision());
-        }
-    }
-
-    IEnumerator WaitForNextCollision()
-    {
-        yield return new WaitForSeconds(0.5f);
-        noCollision = true;
-    }
-
     public int GetDamage() { return damage; }
 
     public void GetDamage(int damage)
