@@ -5816,12 +5816,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 452723446}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &461655748 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3441811052850108421, guid: 0b5694994921d4547b376d5bc65a753e,
-    type: 3}
-  m_PrefabInstance: {fileID: 892219743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &513226449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7187,25 +7181,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4917013908344017122, guid: 0b5694994921d4547b376d5bc65a753e,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 63d5ab944bb88524c93073a171034064, type: 2}
     - target: {fileID: 114055190615315382, guid: 0b5694994921d4547b376d5bc65a753e,
         type: 3}
-      propertyPath: groundDetector
-      value: 
-      objectReference: {fileID: 461655748}
-    - target: {fileID: 114055190615315382, guid: 0b5694994921d4547b376d5bc65a753e,
-        type: 3}
-      propertyPath: detectGroundRadius
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114055190615315382, guid: 0b5694994921d4547b376d5bc65a753e,
-        type: 3}
-      propertyPath: groundDetectorLM.m_Bits
-      value: 256
+      propertyPath: jumpForce
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b5694994921d4547b376d5bc65a753e, type: 3}

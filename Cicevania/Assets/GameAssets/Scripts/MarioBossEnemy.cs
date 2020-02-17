@@ -32,6 +32,7 @@ public class MarioBossEnemy : Enemy
     public virtual void Start()
     {
         base.Start();
+        horizontal = -1;
     }
 
     public void Update()
@@ -41,10 +42,9 @@ public class MarioBossEnemy : Enemy
         {
             LookPlayer();
             DetectGround();
-            /* phase = GetPhase();
-             print("Phase: " + phase);
-             LookPlayer();
-             ManagePhases();*/
+            phase = GetPhase();
+            ManagePhases();
+            anim.SetFloat("Speed", horizontal);
         }
      }
      // Update is called once per frame
@@ -52,14 +52,15 @@ public class MarioBossEnemy : Enemy
      {
          if (activation)
          {
-             Movement();
-            /*if (!isJumping)
+            Movement();
+
+            if (!isJumping)
             {
               isJumping = true;
                 Jump();
                 StartCoroutine(JumpCadencyTime(jumpCadency));
                   
-            }*/
+            }
         }
     }
     
@@ -76,21 +77,20 @@ public class MarioBossEnemy : Enemy
 
     private void LookPlayer()
     {
-        if (this.transform.position.x < target.position.x) horizontal = 1;
-        else horizontal = -1;
+        if (target.position.x < this.transform.position.x ) horizontal = -1;
+        else horizontal = 1;
         ChangeScale();
     }
 
     private void DetectGround()
     {
         Collider2D hit = Physics2D.OverlapCircle(groundDetector.position, detectGroundRadius, groundDetectorLM);
-        print("Hit: " + (hit != null && hit.CompareTag("Ground")));
         anim.SetBool("IsGrounded", hit != null && hit.CompareTag("Ground"));
     }
 
     public override void Movement()
     {
-        if (rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * horizontal * moveSpeed * Time.deltaTime, ForceMode2D.Force);
+        if (rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * horizontal * moveSpeed * 100 * Time.deltaTime, ForceMode2D.Force);
     }
 
     private void ManagePhases()
@@ -137,18 +137,15 @@ public class MarioBossEnemy : Enemy
 
     private int GetPhase()
     {
-        int phase = -1;
-        print("Currentbosshealth: " + GetComponent<Health>().GetCurrentHealth() + " maxhealth: " + GetComponent<Health>().GetMaxHealth());
-        print((2 / 3) * GetComponent<Health>().GetMaxHealth());
-        if (GetComponent<Health>().GetCurrentHealth() > ((2 / 3) * GetComponent<Health>().GetMaxHealth())) phase = 1;
-        else if (GetComponent<Health>().GetCurrentHealth() > ((1 / 3) * GetComponent<Health>().GetMaxHealth())) phase = 2;
-        else phase = 3;
-        return phase;
+        int ph = -1;
+        if (GetComponent<Health>().GetCurrentHealth() > (0.66f * GetComponent<Health>().GetMaxHealth())) ph = 1;
+        else if (GetComponent<Health>().GetCurrentHealth() > (0.33f * GetComponent<Health>().GetMaxHealth())) ph = 2;
+        else ph = 3;
+        return ph;
     }
 
     private void ChangeScale()
     {
-        horizontal = -horizontal;
         transform.localScale = new Vector3(horizontal, this.transform.localScale.y, this.transform.localScale.z);
         GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(horizontal,
                     GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
@@ -183,6 +180,7 @@ public class MarioBossEnemy : Enemy
         yield return new WaitForSeconds(time-0.2f);
         jumpAttack = true;
     }
+    
 
     private void OnDrawGizmos()
     {
