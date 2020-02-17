@@ -16,6 +16,12 @@ public class MarioBossEnemy : Enemy
     private float fireCadency;
     [SerializeField]
     private float maxSpeed;
+    [SerializeField]
+    Transform groundDetector;
+    [SerializeField]
+    private float detectGroundRadius;
+    [SerializeField]
+    LayerMask groundDetectorLM;
 
     bool canShoot = true;
     bool jumpAttack = true;
@@ -34,11 +40,12 @@ public class MarioBossEnemy : Enemy
         if (activation)
         {
             LookPlayer();
+            DetectGround();
             /* phase = GetPhase();
              print("Phase: " + phase);
              LookPlayer();
              ManagePhases();*/
-         }
+        }
      }
      // Update is called once per frame
      public virtual void FixedUpdate()
@@ -46,16 +53,13 @@ public class MarioBossEnemy : Enemy
          if (activation)
          {
              Movement();
-             /* if (!jumpAttack) Movement();
-              else
-              {
-                  if (!isJumping)
-                  {
-                      isJumping = true;
-                      Jump();
-                      StartCoroutine(JumpCadencyTime(jumpCadency));
-                  }
-              }*/
+            /*if (!isJumping)
+            {
+              isJumping = true;
+                Jump();
+                StartCoroutine(JumpCadencyTime(jumpCadency));
+                  
+            }*/
         }
     }
     
@@ -65,7 +69,7 @@ public class MarioBossEnemy : Enemy
         vecToTarget = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z) - transform.position;
         if (vecToTarget.magnitude < detectDist && !activation)
         {
-            //Salta la animación del gorro
+            anim.SetTrigger("Detected");
             activation = true;
         }
     }
@@ -75,6 +79,13 @@ public class MarioBossEnemy : Enemy
         if (this.transform.position.x < target.position.x) horizontal = 1;
         else horizontal = -1;
         ChangeScale();
+    }
+
+    private void DetectGround()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(groundDetector.position, detectGroundRadius, groundDetectorLM);
+        print("Hit: " + (hit != null && hit.CompareTag("Ground")));
+        anim.SetBool("IsGrounded", hit != null && hit.CompareTag("Ground"));
     }
 
     public override void Movement()
@@ -153,8 +164,8 @@ public class MarioBossEnemy : Enemy
 
     private void Jump()
     {
-        float rotation = (this.transform.position.x < target.transform.position.x) ? -1 : 1;
-        transform.localScale = new Vector3(rotation, 1, 1);
+        //float rotation = (this.transform.position.x < target.transform.position.x) ? -1 : 1;
+        //transform.localScale = new Vector3(rotation, 1, 1);
         Vector2 jumpVec = (vecToTarget.normalized * jumpForce) + (Vector2.up * jumpForce);
         rb.AddForce(jumpVec, ForceMode2D.Impulse);
     }
@@ -177,5 +188,8 @@ public class MarioBossEnemy : Enemy
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(this.transform.position, detectDist);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(groundDetector.position, detectGroundRadius);
     }
 }
