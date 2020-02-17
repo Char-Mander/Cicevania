@@ -19,6 +19,7 @@ public class MarioBossEnemy : Enemy
 
     bool canShoot = true;
     bool jumpAttack = true;
+    bool isJumping = false;
     bool activation = false;
     int phase = 1;
     // Start is called before the first frame update
@@ -27,23 +28,41 @@ public class MarioBossEnemy : Enemy
         base.Start();
     }
 
-    // Update is called once per frame
-    public virtual void Update()
+    public void Update()
     {
         DetectTarget(target);
         if (activation)
         {
-            print("Phase: " + phase);
             LookPlayer();
-            if(!jumpAttack) Movement();
-            ManagePhases();
+            /* phase = GetPhase();
+             print("Phase: " + phase);
+             LookPlayer();
+             ManagePhases();*/
+         }
+     }
+     // Update is called once per frame
+     public virtual void FixedUpdate()
+     {
+         if (activation)
+         {
+             Movement();
+             /* if (!jumpAttack) Movement();
+              else
+              {
+                  if (!isJumping)
+                  {
+                      isJumping = true;
+                      Jump();
+                      StartCoroutine(JumpCadencyTime(jumpCadency));
+                  }
+              }*/
         }
     }
-
+    
 
     public override void DetectTarget(Transform target)
     {
-        vecToTarget = target.position - transform.position;
+        vecToTarget = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z) - transform.position;
         if (vecToTarget.magnitude < detectDist && !activation)
         {
             //Salta la animación del gorro
@@ -53,33 +72,23 @@ public class MarioBossEnemy : Enemy
 
     private void LookPlayer()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
-        {
-            if (hit.collider.gameObject.transform.position.x < this.transform.position.x) transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-            else transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        }
+        if (this.transform.position.x < target.position.x) horizontal = 1;
+        else horizontal = -1;
+        ChangeScale();
     }
 
     public override void Movement()
     {
-        if (rb.velocity.magnitude < maxSpeed)
-        {
-            print("Debería moverse");
-            rb.AddForce(Vector2.right * transform.localScale.x * moveSpeed * Time.deltaTime, ForceMode2D.Force);
-        }
+        if (rb.velocity.magnitude < maxSpeed) rb.AddForce(Vector2.right * horizontal * moveSpeed * Time.deltaTime, ForceMode2D.Force);
     }
 
     private void ManagePhases()
     {
-        phase = GetPhase();
         switch (phase)
         {
             case 1: if (jumpAttack)
                     {
                         jumpAttack = false;
-                        Jump();
-                        StartCoroutine(JumpCadencyTime(jumpCadency));
                     }
                 break;
             case 2:
@@ -118,12 +127,22 @@ public class MarioBossEnemy : Enemy
     private int GetPhase()
     {
         int phase = -1;
-        if (GetComponent<Health>().GetCurrentHealth() > 2 / 3 * GetComponent<Health>().GetMaxHealth()) phase = 1;
-        else if (GetComponent<Health>().GetCurrentHealth() > 1 / 3 * GetComponent<Health>().GetMaxHealth()) phase = 2;
+        print("Currentbosshealth: " + GetComponent<Health>().GetCurrentHealth() + " maxhealth: " + GetComponent<Health>().GetMaxHealth());
+        print((2 / 3) * GetComponent<Health>().GetMaxHealth());
+        if (GetComponent<Health>().GetCurrentHealth() > ((2 / 3) * GetComponent<Health>().GetMaxHealth())) phase = 1;
+        else if (GetComponent<Health>().GetCurrentHealth() > ((1 / 3) * GetComponent<Health>().GetMaxHealth())) phase = 2;
         else phase = 3;
         return phase;
     }
 
+    private void ChangeScale()
+    {
+        horizontal = -horizontal;
+        transform.localScale = new Vector3(horizontal, this.transform.localScale.y, this.transform.localScale.z);
+        GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(horizontal,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
+                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
+    }
 
     private void CreateFireProjectil()
     {
@@ -148,7 +167,9 @@ public class MarioBossEnemy : Enemy
 
     IEnumerator JumpCadencyTime(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.2f);
+        isJumping = false;
+        yield return new WaitForSeconds(time-0.2f);
         jumpAttack = true;
     }
 

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void DetectTarget(Transform target)
     {
-        vecToTarget = target.position - transform.position;
+        vecToTarget = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z) - transform.position;
         if (vecToTarget.magnitude < detectDist)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);

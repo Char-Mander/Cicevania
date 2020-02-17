@@ -21,31 +21,34 @@ public class FluffyEnemy : Enemy
     public override void Update()
     {
         DetectTarget(target);
+        Animations();
     }
 
     public override void DetectTarget(Transform target)
     {
-        vecToTarget = target.position - transform.position;
+        vecToTarget = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z) - transform.position;
         if (vecToTarget.magnitude < detectDist)
-        {
+        {   
             RaycastHit2D hit = Physics2D.Raycast(transform.position, vecToTarget.normalized, detectDist, lm);
             if (hit.collider != null && hit.collider.CompareTag("Player"))
             {
                 if (hit.collider.gameObject.transform.position.x < this.transform.position.x) horizontal = -1; //transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
                 else horizontal = 1; // transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
                 transform.localScale = new Vector3(horizontal, transform.localScale.y, transform.localScale.z);
-                Animations();
                 detected = true;
                 Attack();
             }
             else
             {
-                Animations();
                 detected = false;
             }
             GetComponentInChildren<CharacterCanvasController>().transform.localScale = new Vector3(horizontal,
                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.y,
                    GetComponentInChildren<CharacterCanvasController>().transform.localScale.z);
+        }
+        else
+        {
+            detected = false;
         }
     }
 
