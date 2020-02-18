@@ -205,4 +205,9 @@ public class PlayerController : MonoBehaviour
             GodModeOn(hitGodModeDuration);
         }
     }
+    
+    public void SetCrouching(bool value)
+    {
+        isCrouching = value;
+    }
 }

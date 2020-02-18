@@ -73,7 +73,7 @@ public class MarioBossEnemy : Enemy
     public override void DetectTarget(Transform target)
     {
         vecToTarget = new Vector3(target.position.x, target.position.y + 0.5f, target.position.z) - transform.position;
-        if (vecToTarget.magnitude < detectDist && !activation)
+        if (vecToTarget.magnitude < detectDist && !activation && target.GetComponent<Health>().GetCurrentHealth() > 0)
         {
             anim.SetTrigger("Detected");
             GameManager._instance.sound.PlayActivationBossShot();

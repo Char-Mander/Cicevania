@@ -57,6 +57,7 @@ public class Health : MonoBehaviour
                     FindObjectOfType<MarioBossEnemy>().Reset();
                     FindObjectOfType<BlockMechanism>().Reset();
                 }
+                this.gameObject.GetComponent<PlayerController>().SetCrouching(false);
                 LoseLife();
             }
         }
