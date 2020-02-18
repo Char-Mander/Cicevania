@@ -5,6 +5,8 @@ using UnityEngine;
 public class MarioBossEnemy : Enemy
 {
     [SerializeField]
+    Transform iniPos;
+    [SerializeField]
     private GameObject fireProjectil;
     [SerializeField]
     private GameObject posDisp;
@@ -24,8 +26,8 @@ public class MarioBossEnemy : Enemy
     LayerMask groundDetectorLM;
 
     bool canShoot = true;
-    bool jumpAttack = true;
     bool isJumping = false;
+    bool canJump = true;
     bool activation = false;
     int phase = 1;
     // Start is called before the first frame update
@@ -33,10 +35,12 @@ public class MarioBossEnemy : Enemy
     {
         base.Start();
         horizontal = -1;
+        StartCoroutine(JumpCadencyTime(jumpCadency));
     }
 
     public void Update()
     {
+        print("Phase: " + phase);
         DetectTarget(target);
         if (activation)
         {
@@ -44,7 +48,7 @@ public class MarioBossEnemy : Enemy
             DetectGround();
             phase = GetPhase();
             ManagePhases();
-            anim.SetFloat("Speed", horizontal);
+            anim.SetFloat("Speed", Mathf.Abs(horizontal));
         }
      }
      // Update is called once per frame
@@ -54,9 +58,10 @@ public class MarioBossEnemy : Enemy
          {
             Movement();
 
-            if (!isJumping)
+            if (!isJumping && canJump)
             {
-              isJumping = true;
+                canJump = false;
+                isJumping = true;
                 Jump();
                 StartCoroutine(JumpCadencyTime(jumpCadency));
                   
@@ -97,39 +102,21 @@ public class MarioBossEnemy : Enemy
     {
         switch (phase)
         {
-            case 1: if (jumpAttack)
-                    {
-                        jumpAttack = false;
-                    }
+            case 1:
                 break;
             case 2:
                 if (canShoot)
                 {
-                    print("Dispara 2");
                     canShoot = false;
                     CreateFireProjectil();
-                    StartCoroutine(FireCadencyTime(fireCadency));
-                }
-                else if (jumpAttack)
-                {
-                    jumpAttack = false;
-                    Jump();
-                    StartCoroutine(JumpCadencyTime(jumpCadency));
                 }
                 break;
             case 3:
                 if (canShoot)
                 {
-                    print("Dispara 3");
                     canShoot = false;
                     CreateFireProjectil();
-                    StartCoroutine(FireCadencyTime(fireCadency * 2 / 3));
-                }
-               else if (jumpAttack)
-                {
-                    jumpAttack = false;
-                    Jump();
-                    StartCoroutine(JumpCadencyTime(jumpCadency * 2 / 3));
+                    
                 }
                 break;
         }
@@ -154,9 +141,8 @@ public class MarioBossEnemy : Enemy
 
     private void CreateFireProjectil()
     {
-        print("Crea un proyectil");
-        GameObject go = Instantiate(fireProjectil, posDisp.transform.position, posDisp.transform.rotation);
-        Destroy(go, 10);
+        anim.SetTrigger("Fire");
+        StartCoroutine(FireProjectil());
     }
 
     private void Jump()
@@ -166,20 +152,25 @@ public class MarioBossEnemy : Enemy
         Vector2 jumpVec = (vecToTarget.normalized * jumpForce) + (Vector2.up * jumpForce);
         rb.AddForce(jumpVec, ForceMode2D.Impulse);
     }
-
-    IEnumerator FireCadencyTime(float time)
+    
+    IEnumerator FireProjectil()
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(0.4f);
+        GameObject go = Instantiate(fireProjectil, posDisp.transform.position, Quaternion.Euler(new Vector3(posDisp.transform.rotation.x, posDisp.transform.rotation.y, -90)));
+        go.GetComponent<Missile>().SetHorizontal(horizontal);
+        Destroy(go, 10);
+        yield return new WaitForSeconds(phase == 2 ? fireCadency : fireCadency * 2 / 3);
         canShoot = true;
     }
 
     IEnumerator JumpCadencyTime(float time)
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(time);
         isJumping = false;
-        yield return new WaitForSeconds(time-0.2f);
-        jumpAttack = true;
+        yield return new WaitForSeconds(Random.Range(3, 3+time));
+        canJump = true;
     }
+
     
 
     private void OnDrawGizmos()
@@ -190,4 +181,6 @@ public class MarioBossEnemy : Enemy
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(groundDetector.position, detectGroundRadius);
     }
+
+    public Transform GetIniPos() { return iniPos; }
 }
