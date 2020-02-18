@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 545717367460897735}
-  maxHealth: 200
+  maxHealth: 150
 --- !u!114 &114055190615315382
 MonoBehaviour:
   m_ObjectHideFlags: 0
