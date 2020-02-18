@@ -41,9 +41,8 @@ public class MarioBossEnemy : Enemy
 
     public void Update()
     {
-        print("Phase: " + phase);
         DetectTarget(target);
-        if (activation)
+        if (activation && alive)
         {
             LookPlayer();
             DetectGround();
@@ -55,7 +54,7 @@ public class MarioBossEnemy : Enemy
      // Update is called once per frame
      public virtual void FixedUpdate()
      {
-         if (activation)
+         if (activation && alive)
          {
             Movement();
 
@@ -112,7 +111,7 @@ public class MarioBossEnemy : Enemy
                 }
                 break;
             case 3:
-                if (canShoot && alive)
+                if (canShoot)
                 {
                     canShoot = false;
                     CreateFireProjectil();
