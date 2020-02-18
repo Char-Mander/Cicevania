@@ -35,6 +35,14 @@ public class Health : MonoBehaviour
                 GetComponent<Collider2D>().enabled = false;
                 GetComponent<Rigidbody2D>().AddForce(Vector2.up * 50);
                 GameManager._instance.enemyAmmount++;
+                if(this.gameObject.GetComponent<MarioBossEnemy>() != null)
+                {
+                    this.gameObject.GetComponent<MarioBossEnemy>().SetAlive(false);
+                    GameManager._instance.sound.PlayBossDieShot();
+                    GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
+                    GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl());
+                    GameManager._instance.sceneC.LoadGameOver();
+                }
                 Destroy(this.gameObject, 3);
             }
             else if (this.CompareTag("Player"))
@@ -43,6 +51,11 @@ public class Health : MonoBehaviour
                 foreach(Missile m in missiles)
                 {
                     Destroy(m.gameObject);
+                }
+                if(FindObjectOfType<MarioBossEnemy>() != null)
+                {
+                    FindObjectOfType<MarioBossEnemy>().Reset();
+                    FindObjectOfType<BlockMechanism>().Reset();
                 }
                 LoseLife();
             }

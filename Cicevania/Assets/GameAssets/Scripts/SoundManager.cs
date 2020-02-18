@@ -132,6 +132,21 @@ public class SoundManager : MonoBehaviour
         aSource.PlayOneShot(gameSounds[17].GetAudioClip());
     }
 
+    public void PlayActivationBossShot()
+    {
+        aSource.PlayOneShot(gameSounds[19].GetAudioClip());
+    }
+
+    public void PlayFireballShot()
+    {
+        aSource.PlayOneShot(gameSounds[20].GetAudioClip());
+    }
+
+    public void PlayBossDieShot()
+    {
+        aSource.PlayOneShot(gameSounds[21].GetAudioClip());
+    }
+
     //Menu sounds
     public void PlayButtonSound()
     {

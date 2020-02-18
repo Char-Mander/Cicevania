@@ -476,13 +476,13 @@ MonoBehaviour:
   vecToTarget: {x: 0, y: 0}
   damage: 20
   horizontal: -1
-  hitGodModeDuration: 1.5
-  iniPos: {fileID: 0}
+  hitGodModeDuration: 1
+  iniPos: {fileID: 1409333525}
   fireProjectil: {fileID: 3595162427344435436, guid: f7b2cd4280e3ceb4cb6b59e779568ccc,
     type: 3}
   posDisp: {fileID: 4917013907886973786}
   jumpCadency: 3
-  jumpForce: 1
+  jumpForce: 4
   fireCadency: 2
   maxSpeed: 5
   groundDetector: {fileID: 3441811052850108421}

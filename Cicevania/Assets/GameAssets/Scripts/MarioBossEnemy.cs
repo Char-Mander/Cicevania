@@ -29,6 +29,7 @@ public class MarioBossEnemy : Enemy
     bool isJumping = false;
     bool canJump = true;
     bool activation = false;
+    bool alive = true;
     int phase = 1;
     // Start is called before the first frame update
     public virtual void Start()
@@ -76,6 +77,7 @@ public class MarioBossEnemy : Enemy
         if (vecToTarget.magnitude < detectDist && !activation)
         {
             anim.SetTrigger("Detected");
+            GameManager._instance.sound.PlayActivationBossShot();
             activation = true;
         }
     }
@@ -102,8 +104,6 @@ public class MarioBossEnemy : Enemy
     {
         switch (phase)
         {
-            case 1:
-                break;
             case 2:
                 if (canShoot)
                 {
@@ -112,11 +112,10 @@ public class MarioBossEnemy : Enemy
                 }
                 break;
             case 3:
-                if (canShoot)
+                if (canShoot && alive)
                 {
                     canShoot = false;
                     CreateFireProjectil();
-                    
                 }
                 break;
         }
@@ -141,6 +140,7 @@ public class MarioBossEnemy : Enemy
 
     private void CreateFireProjectil()
     {
+        GameManager._instance.sound.PlayFireballShot();
         anim.SetTrigger("Fire");
         StartCoroutine(FireProjectil());
     }
@@ -156,7 +156,7 @@ public class MarioBossEnemy : Enemy
     IEnumerator FireProjectil()
     {
         yield return new WaitForSeconds(0.4f);
-        GameObject go = Instantiate(fireProjectil, posDisp.transform.position, Quaternion.Euler(new Vector3(posDisp.transform.rotation.x, posDisp.transform.rotation.y, -90)));
+        GameObject go = Instantiate(fireProjectil, posDisp.transform.position, Quaternion.Euler(new Vector3(posDisp.transform.rotation.x, posDisp.transform.rotation.y, 90*horizontal)));
         go.GetComponent<Missile>().SetHorizontal(horizontal);
         Destroy(go, 10);
         yield return new WaitForSeconds(phase == 2 ? fireCadency : fireCadency * 2 / 3);
@@ -170,7 +170,6 @@ public class MarioBossEnemy : Enemy
         yield return new WaitForSeconds(Random.Range(3, 3+time));
         canJump = true;
     }
-
     
 
     private void OnDrawGizmos()
@@ -182,5 +181,15 @@ public class MarioBossEnemy : Enemy
         Gizmos.DrawWireSphere(groundDetector.position, detectGroundRadius);
     }
 
-    public Transform GetIniPos() { return iniPos; }
+    public void Reset()
+    {
+        this.gameObject.GetComponent<Health>().GainHealth(1000);
+        activation = false;
+        this.transform.position = new Vector3(iniPos.position.x, iniPos.position.y, iniPos.position.z);
+    }
+
+    public void SetAlive(bool value)
+    {
+        alive = value;
+    }
 }
