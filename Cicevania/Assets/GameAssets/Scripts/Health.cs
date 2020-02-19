@@ -40,7 +40,6 @@ public class Health : MonoBehaviour
                     this.gameObject.GetComponent<MarioBossEnemy>().SetAlive(false);
                     GameManager._instance.sound.PlayBossDieShot();
                     GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
-                    GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl());
                     GameManager._instance.sceneC.LoadGameOver();
                 }
                 Destroy(this.gameObject, 3);

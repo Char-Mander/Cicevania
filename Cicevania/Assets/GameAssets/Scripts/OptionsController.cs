@@ -21,7 +21,6 @@ public class OptionsController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("Pulsa escape");
             SwitchPause();
         }
     }

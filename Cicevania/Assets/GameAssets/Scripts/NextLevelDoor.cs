@@ -11,7 +11,11 @@ public class NextLevelDoor : MonoBehaviour
         {
             triggered = true;
             GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
-            GameManager._instance.data.SaveData(GameManager._instance.GetCurrentLvl());
+            if (GameManager._instance.GetCurrentLvl() > GameManager._instance.GetLevelsCompleted())
+            {
+                GameManager._instance.SetLevelsCompleted(GameManager._instance.GetLevelsCompleted() + 1);
+                GameManager._instance.data.SaveData(GameManager._instance.GetLevelsCompleted());
+            }
             GameManager._instance.sceneC.LoadGameOver();
         }
     }

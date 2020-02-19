@@ -47,7 +47,7 @@ public class MenuController : MonoBehaviour
             GameObject myButton = Instantiate(btnLvlPref);
             myButton.transform.SetParent(content);
             bool auxActive;
-            auxActive = i < GameManager._instance.GetCurrentLvl();
+            auxActive = i < GameManager._instance.GetLevelsCompleted();
             myButton.GetComponent<LvlButton>().InitBtn(i+1, auxActive);
         }
     }

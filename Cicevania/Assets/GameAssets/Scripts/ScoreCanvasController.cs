@@ -54,18 +54,13 @@ public class ScoreCanvasController : MonoBehaviour
 
     public void btnLoadMenu()
     {
-        //if (GameManager._instance.GetCurrentLifes() != 0 && GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels())
-        //GameManager._instance.SetCurrentLvl(GameManager._instance.GetCurrentLvl() + 1);
         GameManager._instance.sceneC.LoadMenu();
     }
 
     //TODORevisar
     public void btnLoadLevel()
     {
-        print("currentlvl: " + GameManager._instance.GetCurrentLvl());
-        if ((GameManager._instance.GetCurrentLvl() < GameManager._instance.GetMaxLevels() && GameManager._instance.GetCurrentLifes() > 0))
-        GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl()+1);
-        else GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
+        GameManager._instance.sceneC.LoadSceneLvl(GameManager._instance.GetCurrentLvl());
     }
 
     void ScoreDataSetUp()

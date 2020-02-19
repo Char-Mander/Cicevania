@@ -5,20 +5,19 @@ using UnityEditor;
 
 public class DataManager : MonoBehaviour
 {
-    private string keyCurrentLvl = "Current Level";
-    private string keyCurrentLifes = "Current Lifes";
+    private string keyLevelsCompleted = "Levels Completed";
 
     public void LoadData()
     {
-        //Carga el nivel actual
-        if(PlayerPrefs.HasKey(keyCurrentLvl))
-        GameManager._instance.SetCurrentLvl(PlayerPrefs.GetInt(keyCurrentLvl));
+        //Carga los niveles completados hasta el momento
+        if (PlayerPrefs.HasKey(keyLevelsCompleted))
+            GameManager._instance.SetLevelsCompleted(PlayerPrefs.GetInt(keyLevelsCompleted));
     }
     
-    public void SaveData(int currentLvl)
+    public void SaveData(int levelsCompleted)
     {
-        //Guarda el nivel actual
-        PlayerPrefs.SetInt(keyCurrentLvl, currentLvl);
+        //Guarda los niveles completados hasta el momento
+        PlayerPrefs.SetInt(keyLevelsCompleted, levelsCompleted);
         PlayerPrefs.Save();
     }
 

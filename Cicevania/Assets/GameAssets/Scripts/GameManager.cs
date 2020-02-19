@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int maxLevels = 2;
     private int currentLvl = 1;
+    private int levelsCompleted = 1;
     [SerializeField]
     private int initLifes = 3;
     private int currentLifes = 3;
@@ -60,6 +61,13 @@ public class GameManager : MonoBehaviour
     }
 
     public int GetMaxLevels(){ return maxLevels; }
+
+    public int GetLevelsCompleted() { return levelsCompleted; }
+
+    public void SetLevelsCompleted(int lvl)
+    {
+        levelsCompleted = lvl;
+    }
 
     public int GetCurrentLvl() { return currentLvl; }
 
