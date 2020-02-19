@@ -8,6 +8,7 @@ public class JumpPowerUp : MonoBehaviour
     private float value;
     [SerializeField]
     private float time;
+
     private void Start()
     {
         this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.5f, this.transform.position.z);
@@ -15,7 +16,7 @@ public class JumpPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<Health>().GetCurrentHealth() > 0)
         {
             GameManager._instance.sound.PlayPowerUpPickUpShot();
             collision.gameObject.GetComponent<PlayerController>().IncreaseJumpForceOn(time, value);

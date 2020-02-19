@@ -82,6 +82,7 @@
     <Compile Include="Assets\GameAssets\Scripts\CrazyFishEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\DataManager.cs" />
     <Compile Include="Assets\GameAssets\Scripts\DeathLimit.cs" />
+    <Compile Include="Assets\GameAssets\Scripts\DynamicPowerUp.cs" />
     <Compile Include="Assets\GameAssets\Scripts\Enemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\FluffyEnemy.cs" />
     <Compile Include="Assets\GameAssets\Scripts\GameManager.cs" />

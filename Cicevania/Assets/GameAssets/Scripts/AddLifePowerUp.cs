@@ -12,7 +12,7 @@ public class AddLifePowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject.GetComponent<Health>().GetCurrentHealth() > 0)
         {
             GameManager._instance.sound.Play1UPShot();
             GameManager._instance.SetCurrentLifes(GameManager._instance.GetCurrentLifes() + 1);
