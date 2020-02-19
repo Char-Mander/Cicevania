@@ -79,12 +79,13 @@ public class Enemy : MonoBehaviour
 
     void Blink()
     {
+        print("El enemigo hace el blink");
         ChangeEnemyAlpha(Mathf.PingPong(Time.time * 5, 1) + 0.5f);
     }
 
     void ChangeEnemyAlpha(float value)
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        SpriteRenderer sr = GetComponent<SpriteRenderer>() != null ? GetComponent<SpriteRenderer>() : GetComponentInChildren<SpriteRenderer>();
         Color auxColor = sr.color;
         auxColor.a = value;
         sr.color = auxColor;

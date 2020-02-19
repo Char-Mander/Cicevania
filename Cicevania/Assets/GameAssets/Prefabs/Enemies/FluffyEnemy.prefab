@@ -364,7 +364,7 @@ MonoBehaviour:
   vecToTarget: {x: 0, y: 0}
   damage: 20
   horizontal: -1
-  hitGodModeDuration: 0.43
+  hitGodModeDuration: 0.4
   jumpForce: 4
   attackDelay: 2
 --- !u!114 &351160019335607363
