@@ -134,13 +134,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  recoverHP: 50
   obstacleDetectorR: {fileID: 7469504994020419211}
   obstacleDetectorL: {fileID: 152426054695663428}
   detectRadius: 0.1
   groundDetectorLM:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
+  rb: {fileID: 0}
+  horizontal: 0
+  recoverHP: 50
 --- !u!1 &3138041652077435222
 GameObject:
   m_ObjectHideFlags: 0

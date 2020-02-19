@@ -163,15 +163,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db980581a395e34b993b79af4c05068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
-  increaseValue: 2
   moveSpeed: 2
   obstacleDetectorR: {fileID: 2150098738363760474}
   obstacleDetectorL: {fileID: 3895932041759362031}
   detectRadius: 0.1
   groundDetectorLM:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
+  rb: {fileID: 0}
+  horizontal: 0
+  duration: 5
+  increaseValue: 2
 --- !u!1 &5286196758267446049
 GameObject:
   m_ObjectHideFlags: 0

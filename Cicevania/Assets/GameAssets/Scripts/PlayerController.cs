@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     bool isCrouching = false;
     bool canJumpOrHit = true;
     bool godMode;
+    bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,39 +40,43 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        anim.SetFloat("Speed", Mathf.Abs(horizontal));
-        anim.SetFloat("VelY", rb.velocity.y);
-        anim.SetBool("IsGrounded", cController.GetIsGrounded());
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJumpOrHit)
+        if (!isDead)
         {
-            if (!isJumping)
-                isJumping = true;
-            if (!isDoubleJumping && !cController.GetIsGrounded())
+            horizontal = Input.GetAxisRaw("Horizontal");
+            anim.SetFloat("Speed", Mathf.Abs(horizontal));
+            anim.SetFloat("VelY", rb.velocity.y);
+            anim.SetBool("IsGrounded", cController.GetIsGrounded());
+            if (Input.GetKeyDown(KeyCode.UpArrow) && canJumpOrHit)
             {
-                isDoubleJumping = true;
-                cController.Jump();
+                if (!isJumping)
+                    isJumping = true;
+                if (!isDoubleJumping && !cController.GetIsGrounded())
+                {
+                    isDoubleJumping = true;
+                    cController.Jump();
+                }
             }
-        }
 
-        //TODO Ataque
-        if(Input.GetKey(KeyCode.R) && canJumpOrHit && canDoSuperAttack)
-        {
+            //TODO Ataque
+            if (Input.GetKey(KeyCode.R) && canJumpOrHit && canDoSuperAttack)
+            {
                 canDoSuperAttack = false;
                 SuperAttack();
-        }
+            }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            isCrouching = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.DownArrow))
-        {
-            isCrouching = false;
-        }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                isCrouching = true;
+            }
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                isCrouching = false;
+            }
 
-        if (godMode) Blink();
-        else ChangePlayerAlpha(1);
+            if (godMode) Blink();
+            else ChangePlayerAlpha(1);
+        }
+        
     }
 
     private void FixedUpdate()
@@ -209,5 +214,11 @@ public class PlayerController : MonoBehaviour
     public void SetCrouching(bool value)
     {
         isCrouching = value;
+    }
+
+    public void SetDead(bool value)
+    {
+        isDead = value;
+        rb.simulated = !value;
     }
 }

@@ -10,6 +10,8 @@ public class GoalMechanism : MonoBehaviour
     private GameObject flag;
     [SerializeField]
     private float fallSpeed;
+    [SerializeField]
+    private float flagOffset = 0.7f;
 
     private GameObject target;
     private bool triggered = false;
@@ -18,14 +20,14 @@ public class GoalMechanism : MonoBehaviour
 
     private void Update()
     {
-        if(triggered && Vector3.Distance(target.transform.position, destiny.position) > 0.8f && !finished)
+        if(triggered && Vector3.Distance(target.transform.position, destiny.position) > flagOffset && !finished)
         {
             target.transform.position += Vector3.down * fallSpeed * Time.deltaTime;
             flag.transform.position = new Vector3(flag.transform.position.x, target.transform.position.y, flag.transform.position.z);
         }
-        else if (triggered && Mathf.Abs(Vector3.Distance(target.transform.position, destiny.position)) < 0.7f && !finished)
+        else if (triggered && Mathf.Abs(Vector3.Distance(target.transform.position, destiny.position)) <= flagOffset && !finished)
         {
-            flag.transform.position = new Vector3(flag.transform.position.x, destiny.transform.position.y-1, flag.transform.position.z);
+            flag.transform.position = new Vector3(flag.transform.position.x, destiny.transform.position.y-0.2f, flag.transform.position.z);
             finished = true;
             EnableOrDisableTarget(true);
         }
@@ -54,7 +56,8 @@ public class GoalMechanism : MonoBehaviour
 
     private void EnableOrDisableTarget(bool enable)
     {
-        target.GetComponent<PlayerController>().enabled = enable;
+        target.GetComponent<PlayerController>().SetDead(!enable);
+       // target.GetComponent<PlayerController>().enabled = enable;
     }
 
     private void UpdateScore()

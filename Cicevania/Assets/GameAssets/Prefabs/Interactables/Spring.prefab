@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8895982627313770965}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8895982627890789675}
   - component: {fileID: 8895982627890789684}
   - component: {fileID: 8895982627890789685}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Jumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8895982628659580528}
   - component: {fileID: 8895982628659580535}
   - component: {fileID: 8602788955434756045}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}

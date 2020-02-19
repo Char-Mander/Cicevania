@@ -32,7 +32,6 @@ public class CharacterCanvasController : MonoBehaviour
 
     public void UpdateLifesAmmount(int currentLifes)
     {
-        // if (txtLifesAmmount != null) txtLifesAmmount.text = "x " + ammount.ToString();
         if (contentLifes.childCount > currentLifes)
         {
             Destroy(contentLifes.GetChild(0).gameObject);

@@ -92,14 +92,14 @@ public class Health : MonoBehaviour
         GameManager._instance.sound.StopMusic();
         GameManager._instance.sound.PlayPeachDiesShot();
         this.gameObject.GetComponent<PlayerController>().GodModeOn(2.5f);
-        this.gameObject.GetComponent<PlayerController>().enabled = false;
+        this.gameObject.GetComponent<PlayerController>().SetDead(true);
     }
 
     IEnumerator WaitForRespawn()
     {
         PlayerDeath();
         yield return new WaitForSeconds(2.5f);
-        this.gameObject.GetComponent<PlayerController>().enabled = true;
+        this.gameObject.GetComponent<PlayerController>().SetDead(false);
         FindObjectOfType<CheckPointController>().Respawn();
 
         MissileLauncher[] missiles = FindObjectsOfType<MissileLauncher>();
@@ -113,7 +113,6 @@ public class Health : MonoBehaviour
     IEnumerator WaitForLoadGameOver()
     {
         yield return new WaitForSeconds(1.7f);
-        this.gameObject.GetComponent<PlayerController>().enabled = true;
         GameManager._instance.sceneC.LoadGameOver();
     }
 }
