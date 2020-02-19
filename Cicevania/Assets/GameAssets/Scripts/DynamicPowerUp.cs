@@ -20,7 +20,7 @@ public class DynamicPowerUp : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         float value = (Random.Range(0, 2) == 0) ? 1 : -1;
         horizontal = value;
-        rb.AddForce(new Vector2(value / 2, 1) * 2, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(value, 1) * 2, ForceMode2D.Impulse);
     }
 
     private void Update()
@@ -34,6 +34,10 @@ public class DynamicPowerUp : MonoBehaviour
         Collider2D hitR = Physics2D.OverlapCircle(obstacleDetectorR.position, detectRadius, groundDetectorLM);
         Collider2D hitL = Physics2D.OverlapCircle(obstacleDetectorL.position, detectRadius, groundDetectorLM);
         if (hitR != null || hitL != null)
+        {
             horizontal = -horizontal;
+
+            print("Cambia la horizontal");
+        }
     }
 }

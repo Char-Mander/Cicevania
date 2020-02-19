@@ -139,7 +139,7 @@ MonoBehaviour:
   detectRadius: 0.1
   groundDetectorLM:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 256
   rb: {fileID: 0}
   horizontal: 0
   recoverHP: 50
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7469504994020419211}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: detectObstacleR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152426054695663428}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: detectObstacleL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
