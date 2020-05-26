@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
         sceneC = GetComponent<SceneController>();
         sound = GetComponent<SoundManager>();
         //Init
-        data.LoadData();
+        //data.LoadData();
+        data.DeletePrefs();
         InitData();
 
     }

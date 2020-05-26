@@ -21,9 +21,13 @@ public class DataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    [MenuItem("Utilidades/Borrar partida")]
-    public static void DeletePrefs()
+    //[MenuItem("Utilidades/Borrar partida")]
+    public void DeletePrefs()
     {
-        PlayerPrefs.DeleteAll();
+        //  PlayerPrefs.DeleteAll();
+        if (PlayerPrefs.HasKey(keyLevelsCompleted))
+        {
+            PlayerPrefs.DeleteKey(keyLevelsCompleted);
+        }
     }
 }

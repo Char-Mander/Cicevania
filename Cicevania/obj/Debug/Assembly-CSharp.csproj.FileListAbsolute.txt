@@ -1,0 +1,2 @@
+D:\Users\Laura\Documents\GitHub\Cicevania\Cicevania\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\Users\Laura\Documents\GitHub\Cicevania\Cicevania\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
